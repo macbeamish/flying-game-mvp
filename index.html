@@ -11,16 +11,17 @@
     <a-scene mindar-image="imageTargetSrc: /src/assets/targets/easter1.mind" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
 
-	<a-asset-item id="rabbit" src="/src/assets/3dmodels/rabbit.glb"></a-asset-item>
+	<!-- <a-asset-item id="rabbit" src="/src/assets/3dmodels/rabbit.glb"></a-asset-item> -->
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-box color="red" scale="1 1 1"></a-box>
 
-      <a-entity mindar-image-target="targetIndex: 0">
+      <!-- <a-entity mindar-image-target="targetIndex: 0">
         <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="rabbit"
           animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
         >
-      </a-entity>
+      </a-entity> -->
     </a-scene>
   </body>
 </html>
