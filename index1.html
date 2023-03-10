@@ -6,13 +6,13 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
    
     <!-- A Frame -->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@fb96ab2/dist/aframe-extras.min.js"></script>
 
     <!-- MindAR -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2/dist/mindar-image-aframe.prod.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2/dist/mindar-image.prod.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2/dist/mindar-image.prod.js"></script>
 
     <!-- Mobile Debugging -->
     <script data-consolejs-channel="6e57dd1c-931c-9493-2ec1-6537451d418f" src="https://remotejs.com/agent/agent.js"></script>
@@ -22,55 +22,76 @@
     <script src="https://cdn.jsdelivr.net/gh/MozillaReality/ammo.js@8bbc0ea/builds/ammo.wasm.js"></script>
 
      <!-- a Frame physics -->
-     <script src="/dist/aframe-physics-system.js"></script>
+     <script src="./dist/aframe-physics-system.js"></script>
 
     <!-- game logic -->
-    <script src="/src/main.js"></script>
+    <script src="./src/scripts/main.js"></script>
+    
 
   </head>
   <body>
+    <!-- mindar-image="imageTargetSrc: ./src/assets/targets/easter1.mind" -->
     <a-scene
-    vr-mode-ui="enabled: false" physics="driver: ammo"  
+    
+    vr-mode-ui="enabled: false" physics="driver: ammo;  debug: true; debugDrawMode: 1"  
     renderer='antialias: true; colorManagement: true; sortObjects: false; precision: high; logarithmicDepthBuffer: false; physicallyCorrectLights: false;'
     device-orientation-permission-ui="enabled: false"
+    raycaster="objects: .clickable" 
+    cursor="rayOrigin: mouse"
    >
     
     <!-- camera -->
-    <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 1.2.0; objects: .clickable"></a-camera>
+    <a-camera position="0 1.6 0" look-controls="enabled: false"></a-camera>
+    
     <!-- assets -->
     <a-assets>
-	      <a-asset-item id="skelly" src="/src/assets/3dmodels/Skeleton.gltf"></a-asset-item>
+      <a-asset-item id="1" src="./src/assets/3dmodels/Lands/FlyingLand_1.glb" ></a-asset-item>
+      <a-asset-item id="2" src="./src/assets/3dmodels/Lands/FlyingLand_2.glb" ></a-asset-item>
+      <a-asset-item id="3" src="./src/assets/3dmodels/Lands/FlyingLand_3.glb" ></a-asset-item>
+      <a-asset-item id="4" src="./src/assets/3dmodels/Lands/FlyingLand_4.glb" ></a-asset-item>
+      <a-asset-item id="5" src="./src/assets/3dmodels/Lands/FlyingLand_5.glb" ></a-asset-item>
+      <a-asset-item id="6" src="./src/assets/3dmodels/Lands/FlyingLand_6.glb" ></a-asset-item>
+      <a-asset-item id="7" src="./src/assets/3dmodels/Lands/FlyingLand_7.glb" ></a-asset-item> 
+      <!-- Sprite -->
+	    <a-asset-item id="skelly" src="/src/assets/3dmodels/Sprites/Skeleton.gltf"></a-asset-item>
     </a-assets>
+    <a-entity id="game"animation="property: position; to: -50 0 0; loop:false; dur: 10000" ></a-entity>
+    <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+    <a-plane color="blue" opaciy="0.5" position="0 -0.552 0" height="0.552" width="1" rotation="-90 0 0"></a-plane>
+  <a-box color="green" scale =" 100 0.01 50"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box"></a-box>
+  <a-box color="red" scale="1 1 1" position ="2 0.1 -3" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" random-hex class="clickable" ></a-box>
+  <a-entity id="bb" geometry="primitive: box" material="color: blue" id="bb" box-jump class="clickable" 
+            scale="1 2 1" position = "-2 5 -2" ammo-body="type: dynamic; emitCollisionEvents: true;"
+            ammo-shape="type: box"></a-entity>
 
-      
-      
+  
+  <a-box id="bb" box-jump class="clickable" color="blue" scale="1 1 1" position = "-2 5 -2" ammo-body="type: dynamic; emitCollisionEvents: true;" ammo-shape="type: box" ></a-box>
+  <a-entity
 
-      <a-entity>
-        <!-- Blue Plane -->
-        <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-        <a-plane color="blue" opaciy="0.5" position="0 -0.552 0" height="0.552" width="1" rotation="-90 0 0"></a-plane>
-        <!-- Green Horizontal box -->
-        <!-- <a-box color="green" scale =" 2 0.01 2"  rotation="-90 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box"></a-box> -->
-        <!-- spinning color change box -->
-        <a-box color="red" scale="1 1 1" position ="2 0.1 -3" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" random-hex class="clickable" ></a-box>
-        <!-- blue jumping box -->
-        <a-entity id="bb" geometry="primitive: box" material="color: blue" id="bb" box-jump class="clickable" 
-                  scale="1 2 1" position = "-2 5 -2" ammo-body="type: dynamic; emitCollisionEvents: true;"
-                  ammo-shape="type: box"></a-entity>
+    class="clickable"
+    id="skeleton"
+    gltf-model="#skelly"
+    scale="1 1 1"
+    position="0 0.1 -3"
+    rotation="0 0 0"
+    ammo-body="type: dynamic ; emitCollisionEvents: true;"
+    ammo-shape="  type: cylinder; fit: manual; halfExtents: 0.5 1 0.5; offset:0 1 0"
+    sprite-jump
+    
 
-      <!-- 3D model/sprite -->
-        <a-entity 
-          class="clickable"
-          id="skeleton"
-          gltf-model="#skelly"
-          scale="1 1 1"
-          position="0 0 -1"
-          rotation="0 0 0"
-          ammo-body="type: dynamic ; emitCollisionEvents: true;"
-          ammo-shape="  type: box; fit: manual; halfExtents: 0.5 1 0.5;"
-          sprite-jump
-        >
-        </a-entity>
-      </a-entity>
+
+               
+  
+   
+    
+    
+  >
+  </a-entity>
+  <!-- <a-entity id="initial-model" gltf-model="#2" scale="1 -2 1" position="0 0 0"
+  rotation="180 0 0"></a-entity> -->
+<!-- <a-entity id="model-container" scale="1 -2 1" position="0 0 0" rotation="180 0 0"></a-entity> -->
+  
     </a-scene>
   </body>
+<script src="./src/scripts/lands.js"></script>
+<script src="./src/scripts/sprite.js"></script>
