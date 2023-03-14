@@ -1,4 +1,48 @@
 
+AFRAME.registerComponent("sprite-collide", {
+    init: function() {
+        this.el.addEventListener("collidestart", evt => {
+            console.log("sprite collided");
+            this.el.setAttribute("ammo-body", {type: "static"})
+        })
+    }
+})
+
+
+AFRAME.registerComponent("sprite-jump-g", {
+  init: function() {
+    // when clicked attach the body and the shape, and apply the impulse
+    this.el.addEventListener("click", evt => {
+     const sprite = document.querySelector("#skeleton")
+            console.log("game clicked");
+      sprite.el.setAttribute("ammo-body", {
+          type: "dynamic"
+        });
+        sprite.el.body.setActivationState(1);
+        console.log("ammo-body set to dynamic");
+        sprite.el.setAttribute("ammo-shape", {
+          type: "cylinder",
+          fit: "manual",
+              halfExtents: { x: 1, y: 1, z: 1 },
+              offset:{x: 0, y: 1, z: 0}
+
+         
+        });
+        console.log("ammo-shape set to hull");
+      const force = new Ammo.btVector3(0, 10, 0);
+      console.log("force set to 0, 5, 0");
+      const pos = new Ammo.btVector3(skeleton.object3D.position.x, skeleton.object3D.position.y, skeleton.object3D.position.z);
+      console.log("position set to skeleton position");
+      skeleton.body.setLinearVelocity(force);
+      console.log("impulse applied");
+      Ammo.destroy(force);
+      console.log("force destroyed");
+      Ammo.destroy(pos);
+      console.log("position destroyed");
+    })
+  }
+})
+
 
 AFRAME.registerComponent("sprite-jump", {
     init: function() {

@@ -27,7 +27,7 @@
 
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: /src/assets/targets/easter1.mind"
+    <a-scene mindar-image="imageTargetSrc: /src/assets/targets/target.mind"
     vr-mode-ui="enabled: false" physics="driver: ammo;  debug: true;"  
     renderer='antialias: true; colorManagement: true; sortObjects: false; precision: high; logarithmicDepthBuffer: false; physicallyCorrectLights: false;'
     device-orientation-permission-ui="enabled: false"
@@ -38,9 +38,10 @@
     physics="driver: ammo;  debug: true; debugDrawMode: 1"
     >
     <!-- camera -->
-    <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 1.2.0; objects: .clickable"></a-camera>
+    <a-camera mousecontrol id="camera" position="0 0 10" look-controls="enabled: false"
+    cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable"></a-camera>
     <!-- assets -->
-    <a-assets>
+    <a-assets id="assets" timeout="3000">
 	      <a-asset-item id="skelly" src="/src/assets/3dmodels/Sprites/Skeleton.gltf"></a-asset-item>
     </a-assets>
 
@@ -72,6 +73,7 @@
           ammo-body="type: static ; emitCollisionEvents: true;"
           ammo-shape="  type: cylinder; fit: manual; halfExtents: 0.5 1 0.5;"
           sprite-jump-m
+          sprite-jump
         >
         </a-entity>
         <a-entity 
@@ -84,11 +86,12 @@
         ammo-body="type: dynamic ; emitCollisionEvents: true;"
         ammo-shape="  type: box; fit: manual; halfExtents: 0.5 1 0.5;"
         sprite-jump-m
+        sprite-jump
       >
       </a-entity>
       </a-entity>
     </a-scene>
   </body>
   <!-- game logic -->
-  <script src="./src//scripts/main.js"></script>
+  <script src="./src/scripts/main.js"></script>
   <script src="./src/scripts/sprite.js"></script>
