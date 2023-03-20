@@ -74,7 +74,7 @@
           
         </a-entity> -->
       </a-entity>
-      <a-plane jump color="blue" scale ="1000 1000 1000" position = "0 0 -50" class = "clickable" material="opacity: 0.0; transparent: true"></a-plane>
+      <a-plane jump class="clickable" color="blue" scale ="1000 1000 1000" position = "0 0 -50"  material="opacity: 0.0; transparent: true"></a-plane>
       <a-box color="green" scale =" 100 0.01 50"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box" ></a-box>
   
       <a-entity
@@ -82,13 +82,11 @@
           gltf-model="#skelly"
           scale="1 1 1"
           position="0 0.1 -15"
-          rotation="0 0 0"
-          ammo-body="type: kinematic ; emitCollisionEvents: true;"
-          ammo-shape="type: cylinder; fit: manual; halfExtents: 0.5 1 0.5; offset:0 1 0"
-          jump
-          sprite-collide
+          rotation="0 0 0"        
         >
       </a-entity>
+      <!-- sprite-jump
+          class="clickable" -->
     </a-scene>
   </body>
 <script src="./src/scripts/lands.js"></script>

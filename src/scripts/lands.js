@@ -16,8 +16,7 @@ AFRAME.registerComponent('land-tick', {
             if (landx < -50){
                 console.log(`${this.el.id} is off screen`);  
                 var newLandPosition = 460;  
-                var  landnum = 1;
-                landnum = landomizer(landnum);      
+                var  landnum = parseInt(this.el.getAttribute('landnum'));     
                 landBuild(this.el.id, landnum, newLandPosition);
                 game.removeChild(this.el);
                 
@@ -34,6 +33,7 @@ function landomizer(num){
 }
 
 console.log("lands.js loaded");
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);

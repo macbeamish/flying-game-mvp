@@ -93,9 +93,9 @@ AFRAME.registerComponent("sprite-jump", {
           console.log("ammo-shape set to hull");
         const force = new Ammo.btVector3(0, 10, 0);
         console.log("force set to 0, 5, 0");
-        const pos = new Ammo.btVector3(skeleton.object3D.position.x, skeleton.object3D.position.y, skeleton.object3D.position.z);
+        const pos = new Ammo.btVector3(sprite.object3D.position.x, sprite.object3D.position.y, sprite.object3D.position.z);
         console.log("position set to skeleton position");
-        skeleton.body.setLinearVelocity(force);
+        sprite.body.setLinearVelocity(force);
         console.log("impulse applied");
         Ammo.destroy(force);
         console.log("force destroyed");
