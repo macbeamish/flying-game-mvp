@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function(){
 	  console.log("MindAR is ready")
 	});
   });
+
+  
   // arReady event triggered when ready
 
 

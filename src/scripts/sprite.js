@@ -1,9 +1,37 @@
+AFRAME.registerComponent('jump', {
+  init: function () {
+    const speed = 10;
+    
+    const direction = new THREE.Vector3(0, 1, 0);
+    const sprite = document.querySelector("#sprite");
+    sprite.velocity = new THREE.Vector3();
+    this.el.addEventListener('click', () => {
+    sprite.velocity.addScaledVector(direction, speed);
+    });
+  },
+  tick: function (time, delta) { 
+      const sprite = document.querySelector("#sprite");
+      const gravity = 9.8;
+      const position = sprite.object3D.position.clone();
+      const dt = delta / 1000;
+      sprite.velocity.y -= gravity * dt;
+      position.addScaledVector(sprite.velocity, dt);
+      if (position.y < 0) {
+        position.y = 0;
+        sprite.velocity.set(0, 0, 0);
+      }
+      sprite.object3D.position.copy(position);
+    
+  }
+});
+
+
+
 
 AFRAME.registerComponent("sprite-collide", {
     init: function() {
         this.el.addEventListener("collidestart", evt => {
             console.log("sprite collided");
-            this.el.setAttribute("ammo-body", {type: "static"})
         })
     }
 })

@@ -53,7 +53,8 @@
         <!-- Sprite -->
         <a-asset-item id="skelly" src="/src/assets/3dmodels/Sprites/Skeleton.gltf"></a-asset-item>
       </a-assets>
-      <a-entity id="game" animation="property: position; to: -999 0 0; loop:false; dur: 100000" >
+      <a-entity id="game">
+        <!-- animation = 'property: position; to: -999 0 0; loop: false; dur: 100000' -->
         <!-- <a-entity id="continent0">
 
         </a-entity>
@@ -73,21 +74,19 @@
           
         </a-entity> -->
       </a-entity>
-
+      <a-plane jump color="blue" scale ="1000 1000 1000" position = "0 0 -50" class = "clickable"></a-plane>
       <a-box color="green" scale =" 100 0.01 50"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box"></a-box>
   
       <a-entity
-          class="clickable"
-          id="skeleton"
+          id="sprite"
           gltf-model="#skelly"
           scale="1 1 1"
-          position="0 0.1 -3"
+          position="0 0.1 -15"
           rotation="0 0 0"
-          ammo-body="type: dynamic ; emitCollisionEvents: true;"
+          ammo-body="type: kinematic ; emitCollisionEvents: true;"
           ammo-shape="type: cylinder; fit: manual; halfExtents: 0.5 1 0.5; offset:0 1 0"
-          sprite-jump
+          jump
           sprite-collide
-        
         >
       </a-entity>
     </a-scene>
