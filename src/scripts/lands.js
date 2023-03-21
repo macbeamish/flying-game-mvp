@@ -16,7 +16,7 @@ AFRAME.registerComponent('land-tick', {
             if (landx < -50){
                 console.log(`${this.el.id} is off screen`);  
                 var newLandPosition = 460;  
-                var  landnum = parseInt(this.el.getAttribute('landnum'));     
+                var  landnum = this.el.getAttribute('landnum');     
                 landBuild(this.el.id, landnum, newLandPosition);
                 game.removeChild(this.el);
                 
@@ -81,7 +81,7 @@ const land = document.createElement('a-entity');
 const velocity = dir.clone().multiplyScalar(speed);
 land.setAttribute('velocity', velocity);
 land.setAttribute('id', `${id}`);
-land.setAttribute('landnum', `${landnumber}`);
+land.setAttribute('landnum', landnumber);
 land.setAttribute('gltf-model', `#${landnumber}`);
 land.setAttribute('position', {x: x, y: 0.1, z: -15});
 land.setAttribute('ammo-body', {type: 'kinematic', emitCollisionEvents: true});
