@@ -202,7 +202,7 @@ const land = document.createElement('a-entity');
 land.setAttribute('id', `${id}`);
 land.setAttribute('landnum', landnumber);
 land.setAttribute('gltf-model', `url(./src/assets/3dmodels/Lands/FlyingLand_${landnumber}.glb)#model`);
-land.setAttribute('position', {x: x, y: 0.1, z: -15});
+land.setAttribute('position', {x: x, y: -5, z: -15});
 land.setAttribute('land-tick', {});
 land.setAttribute('land-speed', landSpeed);
 land.setAttribute('land-move', {});
