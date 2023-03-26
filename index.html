@@ -55,20 +55,26 @@
       
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-entity id="game">
+        <a-entity id="game" position = "0 -1.9 0">
         </a-entity>
         <!-- clear Plane -->
         <a-plane color="blue" jump position="0 0 -20" height="100" width="100" rotation="0 0 0" class = "clickable" material="opacity: 1.0; transparent: true"></a-plane>
         <!-- Green Horizontal box -->
-        <a-box jump color="green" scale =" 10 0.01 10" position="0 -1 0"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box" class = "clickable"></a-box>
+        <a-box jump color="green" scale =" 10 0.01 10" position="0 -2 0"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box" class = "clickable"></a-box>
         <a-entity
-          id="sprite"
-          gltf-model="#skelly"
-          scale="1 1 1"
-          position="0 -1 -15"
-          rotation="0 0 0"
-        >
-        </a-entity>
+        id="sprite"
+        gltf-model="url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model"
+        scale="1 1 1"
+        position="0 15 -15"
+        rotation="0 -180 0"
+        geometry="primitive: box; width: 4; height: 2; depth: 1"
+        sprite-height="2"
+        sprite-width="4"
+        sprite-collide
+        sprite-speed = "5"
+        
+      >
+    </a-entity>
       </a-entity>
     </a-scene>
   </body>

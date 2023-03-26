@@ -82,4 +82,89 @@ console.log(`land${id} added with land ${landnumber} at location x = ${x}`);
 terraForm();
 
 
- 
+ AFRAME.registerComponent('land-collide', {
+    init: function() {
+      // Get the geometry component of the "otherSprite" entity
+      var otherGeometry = document.querySelector('#sprite').getAttribute('geometry');
+      var thisGeometry = this.el.getAttribute('geometry');
+      console.log(otherGeometry);
+      console.log(thisGeometry);
+    //  console.log(this.el.getAttribute('geometry'));
+  
+      // Set up the AABB collision detection component to check for collisions with the "otherSprite" entity
+      this.el.setAttribute('aabb-collider', {objects: '#sprite'});
+  
+      // Set up a listener to check for collisions with the "otherSprite" entity
+      this.el.addEventListener('collide', function(evt) {
+        if (evt.detail.body.el.getAttribute('geometry') === otherGeometry) {
+          console.log('Collision detected!');
+        }
+      });
+    }
+  });
+  
+
+  AFRAME.registerComponent('land-move', {
+
+    // Initialize the component
+    init: function () {
+    },
+
+    // Update the component on every animation frame
+    tick: function (time, delta) { 
+         var isPaused = this.el.getAttribute('paused');
+        if (isPaused == false){
+            // Set direction of the entity
+            const direction = new THREE.Vector3(-51, 0, 0); 
+            var speed = this.el.getAttribute('land-speed');
+            this.el.velocity = new THREE.Vector3();
+            this.el.velocity.addScaledVector(direction, speed);
+
+            // Get the current position of the entity
+            const position = this.el.object3D.position.clone();
+
+            // Calculate the time since the last animation frame
+            const dt = delta / 1000;
+
+            // Update the position of the entity based on its velocity
+            position.addScaledVector(this.el.velocity, dt);
+
+            // Set the new position of the entity
+            this.el.object3D.position.copy(position);
+        }
+        else{
+            console.log('paused in tick');
+            const direction = new THREE.Vector3(0, 0, 0); 
+            var speed = this.el.getAttribute('land-speed');
+            this.el.velocity = new THREE.Vector3();
+            this.el.velocity.addScaledVector(direction, speed);
+
+            // Get the current position of the entity
+            const position = this.el.object3D.position.clone();
+
+            // Calculate the time since the last animation frame
+            const dt = delta / 1000;
+
+            // Update the position of the entity based on its velocity
+            position.addScaledVector(this.el.velocity, dt);
+
+            // Set the new position of the entity
+            this.el.object3D.position.copy(position);
+
+        }
+    },
+    pause: function () {
+        this.el.addEventListener('pause', () => {
+            console.log('pausing');
+        this.paused = true;
+        this.el.velocity = new THREE.Vector3(0, 0, 0); // Set velocity to 0
+        });
+
+    },
+    play: function () {
+        this.el.addEventListener('play', () => {
+            console.log('playing');
+        this.paused = false;
+        });
+    }
+});
