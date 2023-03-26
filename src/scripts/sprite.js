@@ -18,7 +18,7 @@ AFRAME.registerComponent('jump', {
       position.addScaledVector(sprite.velocity, dt);
       sprite.setAttribute('current-velocity', sprite.velocity.y);
       if (position.y < -2) {
-        position.y = 0;
+        position.y = -2;
         sprite.velocity.set(0, 0, 0);
       }
       if (position.y > 13) {
