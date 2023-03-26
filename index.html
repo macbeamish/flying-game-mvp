@@ -60,7 +60,7 @@
         <!-- clear Plane -->
         <a-plane color="blue" jump position="0 0 -20" height="100" width="100" rotation="0 0 0" class = "clickable" material="opacity: 1.0; transparent: true"></a-plane>
         <!-- Green Horizontal box -->
-        <a-box jump color="green" scale =" 10 0.01 10" position="0 -2 0"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box" class = "clickable"></a-box>
+        <a-box jump color="green" scale =" 10 0.01 10" position="0 -10 0"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box" class = "clickable"></a-box>
         <a-entity
         id="sprite"
         gltf-model="url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model"
@@ -72,6 +72,7 @@
         sprite-width="4"
         sprite-collide
         sprite-speed = "5"
+        jump
         
       >
     </a-entity>
