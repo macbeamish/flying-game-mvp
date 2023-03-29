@@ -1,3 +1,5 @@
+
+
 AFRAME.registerComponent('jump', {
   init: function () {
     this.el.setAttribute('sprite-speed', 5);
@@ -10,22 +12,27 @@ AFRAME.registerComponent('jump', {
     });
   },
   tick: function (time, delta) { 
+    if(!isPaused) {
       const sprite = document.querySelector("#sprite");
+      this.el.setAttribute('sprite-speed', 5);
+      var speed = this.el.getAttribute('sprite-speed');
       const gravity = 9.8;
       const position = sprite.object3D.position.clone();
       const dt = delta / 1000;
       sprite.velocity.y -= gravity * dt;
       position.addScaledVector(sprite.velocity, dt);
       sprite.setAttribute('current-velocity', sprite.velocity.y);
-      if (position.y < -5) {
-        position.y = -5;
+      if (position.y < 0) {
+        position.y = 0;
         sprite.velocity.set(0, 0, 0);
+        pause()
       }
       if (position.y > 13) {
         position.y = 13;
         sprite.velocity.set(0, 0, 0);
       }
       sprite.object3D.position.copy(position);
+    }
     
   },
  

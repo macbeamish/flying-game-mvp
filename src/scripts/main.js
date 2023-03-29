@@ -3,7 +3,7 @@
 //todo add UI Overlays
 //todo add screens
 // figure out figma
-
+var isPaused = true;
 console.log("main.js loaded");
 document.addEventListener("DOMContentLoaded", function(){
   const sceneEl = document.querySelector('a-scene');
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function pause() {
 	console.log("Pause button clicked");
+	isPaused = true;
 	const entities = document.querySelectorAll('[land-move]');
 	entities.forEach(entity => {
 		entity.setAttribute('land-speed', 0)
@@ -25,12 +26,15 @@ function pause() {
 	  const sprite = document.querySelector("#sprite");
 	  var oldSpeed = sprite.getAttribute('sprite-speed');
 	  sprite.setAttribute('sprite-speed', 0);
-	  sprite.setAttribute('old-speed', oldSpeed);
+	//   sprite.setAttribute('old-speed', oldSpeed);
+	  sprite.setAttribute('sprite-gravity', 0);
+	  sprite.setAttribute('freeze', 0);
  
 
 }
 function resume() {
 	console.log('resume button clicked');
+	isPaused = false;
 	const entities = document.querySelectorAll('[land-move]');
 	entities.forEach(entity => {
 		entity.setAttribute('land-speed', 0.1)
@@ -38,6 +42,8 @@ function resume() {
 	const sprite = document.querySelector("#sprite");
 	var oldSpeed = sprite.getAttribute('old-speed');
 	sprite.setAttribute('sprite-speed', oldSpeed);
+	sprite.setAttribute('sprite-gravity', 9.8);
+	sprite.setAttribute('freeze' , 1);
 
 }
   

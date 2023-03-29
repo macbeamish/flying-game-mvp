@@ -64,33 +64,37 @@ AFRAME.registerComponent('land-collide', {
             //Get land position and size
             var worldPosition = new THREE.Vector3();          
             this.el.object3D.getWorldPosition(worldPosition);
-            var landHeight = this.el.getAttribute('land-height');
-            var landWidth = this.el.getAttribute('land-width');
+            var landHeight = parseFloat(this.el.getAttribute('land-height'));
+            var landWidth = parseFloat(this.el.getAttribute('land-width'));
             var landX = worldPosition.x;
             var landY = worldPosition.y;
             //get baloon altitude and size
-            var baloonAltitude = this.el.getAttribute('baloon-altitude');
-            var baloonWidth = this.el.getAttribute('baloon-width');
+            var baloonAltitude = parseFloat(this.el.getAttribute('baloon-altitude'));
+            var baloonWidth = parseFloat(this.el.getAttribute('baloon-width'));
 
             //Get sprite position and size
             var sprite = document.querySelector('#sprite');
             var spritePosition = new THREE.Vector3();
             sprite.object3D.getWorldPosition(spritePosition);
             var spriteX = spritePosition.x;
-            var spriteY = spritePosition.y;
-            var spriteHeight = sprite.getAttribute("sprite-height");
-            var spriteWidth = sprite.getAttribute("sprite-width");
+            var spriteY =  parseFloat(spritePosition.y);
+            var spriteHeight = parseFloat(sprite.getAttribute("sprite-height"));
+            var spriteWidth = parseFloat(sprite.getAttribute("sprite-width"));
 
             //Check for land collision
-            if (spriteX + (spriteWidth/2) > landX - (landWidth/2) && spriteX - (spriteWidth/2) < landX + (landWidth/2) && spriteY < landY + landHeight){
+            if (spriteX + (spriteWidth/2) > landX - (landWidth/2)
+             && spriteX - (spriteWidth/2) < landX + (landWidth/2) 
+             && spriteY < landY + landHeight){
                 console.log("land collision");
-                // pause();
+                pause();
                 
           
             }
-            if(spriteY + spriteHeight > baloonAltitude && spriteX + (spriteWidth/2) > landX - (baloonWidth/2) && spriteX - (spriteWidth/2) < landX + (baloonWidth/2)){
-                console.log("balloon collision");
-                // pause();
+            if((spriteY + spriteHeight > baloonAltitude)
+                && (spriteX + (spriteWidth/2) > landX - (baloonWidth/2))
+                && (spriteX - (spriteWidth/2) < landX + (baloonWidth/2))){
+                console.log("balloon collision" + baloonAltitude + ";" + spriteHeight + ";" + spriteY);
+                pause();
                 
             }
 
@@ -180,17 +184,17 @@ function landBuild(id, landnumber, x, landSpeed){
     var landHeight = 0;
     var landWidth = 0;
     switch(landnumber){
-        case 1: landWidth = 4; landHeight = 5; break;
-        case 2: landWidth = 4; landHeight = 5; break;
-        case 3: landWidth = 6; landHeight = 8; break;
-        case 4: landWidth = 6; landHeight = 8; break;
-        case 5: landWidth = 6; landHeight = 9; break;
-        case 6: landWidth = 8; landHeight = 10; break;
-        case 7: landWidth = 8; landHeight = 10; break;
+        case 1: landWidth = 2; landHeight = 1; break;
+        case 2: landWidth = 2; landHeight = 1; break;
+        case 3: landWidth = 4; landHeight = 4; break;
+        case 4: landWidth = 2; landHeight = 4; break;
+        case 5: landWidth = 4; landHeight = 4; break;
+        case 6: landWidth = 4; landHeight = 5; break;
+        case 7: landWidth = 2; landHeight = 6; break;
     }
 if(landnumber==1 || landnumber==2){
-    baloonAltitude = 50;
-    baloonWidth = 4
+    baloonAltitude = 10;
+    baloonWidth = 2
 }
 else{
     baloonWidth = 0;
@@ -202,7 +206,7 @@ const land = document.createElement('a-entity');
 land.setAttribute('id', `${id}`);
 land.setAttribute('landnum', landnumber);
 land.setAttribute('gltf-model', `url(./src/assets/3dmodels/Lands/FlyingLand_${landnumber}.glb)#model`);
-land.setAttribute('position', {x: x, y: -5, z: -15});
+land.setAttribute('position', {x: x, y: 0.1, z: -15});
 land.setAttribute('land-tick', {});
 land.setAttribute('land-speed', landSpeed);
 land.setAttribute('land-move', {});
