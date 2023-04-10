@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Language</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+  <style>* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Paytone One', sans-serif;
+  }
+  
+  .background-image {
+    background-image: url('../src/assets/img/green-background.png');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-image {
+    background-image: url('../src/assets/img/how-box.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content {
+    max-width: 60vw;
+    padding: 4vw;
+    text-align: center;
+    color: Black;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 4vh;
+    margin-top: 15vh;
+  }
+  
+  .instructions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(10vh)
+   
+  }
+
+  .instruction-1, .instruction-2 {
+    display: inline-block;
+    margin-right: 5vw;
+    margin-left: 5vw;
+  }
+  
+  .instruction-1 img, .instruction-2 img {
+    width: 20vh;
+  }
+  
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(10vh)
+   
+  }
+  
+  .button-1, .button-2 {
+    
+    display: inline-block;
+  }
+  
+  .button-1 img, .button-2 img {
+    width: 10vh;
+  
+  }</style>
+</head>
+<body>
+  <div class="background-image">
+    <div class="content-image">
+      <div class="content">
+        <div class="instructions">
+            <div class="instruction-1">
+                <img  src="../src/assets/img/device.png" alt="Hold device lanscape">
+                <h3 style="margin-top: 3vh;">
+                    Hold your device in landscape mode
+                </h3>
+            </div>
+            
+            <div class="instruction-2">
+                <img  src="../src/assets/img/point-camera.png" alt="point at poster"> 
+                <h3 style="margin-top: 3vh;">
+                    Point your camera at the poster
+            </div>
+               
+        </div>
+        <div class="button">
+          <a href="#" class="button-1"><img onclick="loadPage('../src/views/posters.html','overlay')" src="../src/assets/img/next-arrow-button.png" alt="english"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

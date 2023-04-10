@@ -205,3 +205,131 @@ AFRAME.registerComponent('jump', {
   },
  
 });
+
+
+	// const sprite = document.querySelector("#sprite");
+	// var oldSpeed = sprite.getAttribute('old-speed');
+	// // sprite.setAttribute('sprite-speed', oldSpeed);
+	// // sprite.setAttribute('sprite-gravity', 9.8);
+
+
+}
+
+// // Get the mesh objects for two sphere entities
+// var sphere1 = document.querySelector('#sphere1').getObject3D('mesh');
+// var sphere2 = document.querySelector('#sphere2').getObject3D('mesh');
+
+// // Test for intersections between the two sphere geometries
+// var intersects = sphere1.geometry.intersect(sphere2.geometry);
+
+// // If there was an intersection, do something
+// if (intersects.length > 0) {
+//   // Do something
+// }
+
+// AFRAME.registerComponent('collision-detection-land', {
+
+//     init: function () {
+// 		var spriteMesh = document.querySelector('#sprite').getObject3D('mesh');
+
+
+  
+//     },
+
+//     tick: function (time, timeDelta) {
+// 		var objMesh = this.el.getObject3D('mesh');
+// 		var intersects = spriteMesh.geometry.intersect(objMesh.geometry);
+
+// 		// If there was an intersection, do something
+// 		if (intersects.length > 0) {
+//   		  pause();
+// 		}
+// 	}
+//   });
+//   AFRAME.registerComponent('collision-detection-collectable', {
+
+//     init: function () {
+// 		var spriteMesh = document.querySelector('#sprite').getObject3D('mesh');
+//     },
+
+//     tick: function (time, timeDelta) {
+// 		var objMesh = this.el.getObject3D('mesh');
+// 		var intersects = spriteMesh.geometry.intersect(objMesh.geometry);
+
+// 		// If there was an intersection, do something
+// 		if (intersects.length > 0) {
+//   		  this.el.setAttribute('visible', false);
+// 		}
+// 	}
+//   });
+  
+// AFRAME.registerComponent('collision-detection', {
+
+//     init: function () {
+//       const sprite = document.querySelector('#sprite');
+//       const spriteGeometry = sprite.getAttribute('geometry');
+//       const spritePosition = sprite.object3D.position;
+
+//       let spriteBoundingVolume;
+//       if (spriteGeometry.primitive === 'sphere') {
+//         const radius = spriteGeometry.radius;
+//         spriteBoundingVolume = new THREE.Sphere(spritePosition, radius);
+//       } else if (spriteGeometry.primitive === 'box') {
+//         const box = new THREE.Box3().setFromObject(sprite.object3D);
+//         spriteBoundingVolume = box;
+// 		console.log(spriteBoundingVolume)
+//       }
+
+  
+//     },
+
+//     tick: function (time, timeDelta) {
+      
+//         const objGeometry = this.el.getAttribute('geometry');
+//         const objPosition = this.el.object3D.position;
+
+//         let objBoundingVolume;
+
+//         if (objGeometry.primitive === 'sphere') {
+//           const radius = parseFloat(objGeometry.radius);
+//           objBoundingVolume = new THREE.Sphere(objPosition, radius);
+	
+//         } else if (objGeometry.primitive === 'box') {
+//           const box = new THREE.Box3().setFromObject(this.el.object3D);
+//           objBoundingVolume = box;
+//         }
+
+// 		console.log(objBoundingVolume);
+
+//         if (spriteBoundingVolume && objBoundingVolume) {
+//           if (
+//             (spriteBoundingVolume instanceof THREE.Sphere &&
+//               objBoundingVolume instanceof THREE.Sphere &&
+//               spriteBoundingVolume.intersectsSphere(objBoundingVolume)) ||
+//             (spriteBoundingVolume instanceof THREE.Box3 &&
+//               objBoundingVolume instanceof THREE.Box3 &&
+//               spriteBoundingVolume.intersectsBox(objBoundingVolume)) ||
+//             (spriteBoundingVolume instanceof THREE.Sphere &&
+//               objBoundingVolume instanceof THREE.Box3 &&
+//               objBoundingVolume.intersectsSphere(spriteBoundingVolume)) ||
+//             (spriteBoundingVolume instanceof THREE.Box3 &&
+//               objBoundingVolume instanceof THREE.Sphere &&
+//               spriteBoundingVolume.intersectsSphere(objBoundingVolume))
+//           ) {
+//             this.isColliding = true;
+//             if(this.el.getAttribute('obj-type')==='land')
+//             {
+//                 pause()
+//             }
+//             if(this.el.getAttribute('obj-type')==='collectable')
+//             {
+//                 this.el.setAttribute('visible', false);
+//             }
+
+//           } else {
+//             this.isColliding = false;
+//           }
+//         }
+      
+//     },
+//   });

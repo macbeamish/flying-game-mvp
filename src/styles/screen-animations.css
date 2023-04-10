@@ -1,0 +1,46 @@
+.easeinmovement {
+    position:absolute;
+    transition: all 1.7s ease-in-out;
+    -webkit-transition: all 1.7s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 1.7s ease-in-out; /** Firefox **/
+    -o-transition: all 1.7s ease-in-out; /** Opera **/
+ 
+ }
+ 
+ .easeoutmovement {
+    position:absolute;
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out; /** Chrome & Safari **/
+    -moz-transition: all 2s ease-in-out; /** Firefox **/
+    -o-transition: all 2s ease-in-out; /** Opera **/
+ 
+ }
+ 
+ .move-in{
+     transform: translate(-125%,0);
+     -webkit-transform: translate(-125%,0);
+     -o-transform: translate(-125%,0); 
+     -moz-transform: translate(-125%,0);
+ }
+ 
+ .start {
+     left: 100%; 
+     top: 15%;
+ }
+ 
+ 
+ .move-out{
+     transform: translate(-400%,0);
+     -webkit-transform: translate(-400%,0);
+     -o-transform: translate(-400%,0); 
+     -moz-transform: translate(-400%,0);
+ }
+ 
+ 
+ 
+ body {   
+     overflow-y: hidden !important;
+     max-width: 100% !important;
+     overflow-x: hidden !important;
+     margin: 0 0 0 0 
+ }

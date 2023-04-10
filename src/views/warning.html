@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Language</title>
+  <style>* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Paytone One', sans-serif;
+  }
+  
+  .background-image {
+    background-image: url('../src/assets/img/green-background.png');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-image {
+    background-image: url('../src/assets/img/warning-box.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content {
+    max-width: 40vw;
+    padding-top: 10vw;
+    text-align: center;
+    color: Black;
+  }
+  .content img{
+    width: 20vh;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 4vh;
+    margin-top: 1vh;
+  }
+  
+
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-1{
+    
+    display: inline-block;
+  }
+  
+  .button-1 img{
+    width: 12vh;
+    opacity:0;
+  }</style>
+</head>
+<body>
+  <div class="background-image">
+    <div class="content-image">
+      <div class="content">
+        <img  src="../src/assets/img/warning-symbol.png" alt="Warning Symbol">
+        <h1>Watch out for your surroundings while playing Magical AR Easter</h1>
+        
+        <div class="buttons">
+          <a href="#"  onclick="loadPage('../src/views/terms.html','overlay')" class="button-1"><img src="../src/assets/img/next-arrow-button.png" alt="next"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
