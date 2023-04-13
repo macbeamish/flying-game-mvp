@@ -123,3 +123,35 @@ function loadContentOnClick(contentUrl, targetSelector) {
 function removeContent() {
     document.getElementById('overlay').innerHTML = '';
 }
+
+function addDiv(divId, containerId) {
+    const newDiv = document.createElement('div');
+    newDiv.setAttribute('id', divId);
+    document.getElementById(containerId).appendChild(newDiv);
+}
+
+function removeDiv(divId) {
+    const divToRemove = document.getElementById(divId);
+    if (divToRemove) {
+        divToRemove.remove();
+    }
+}
+
+function buildPage(url, divId) {
+	const newDiv = document.createElement('div');
+    newDiv.setAttribute('id', 'overlay');
+    document.getElementById('pg').appendChild(newDiv);
+	var xmlhttp;
+	if (window.XMLHttpRequest) {
+	  xmlhttp = new XMLHttpRequest();
+	} else {
+	  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+		document.getElementById(divId).innerHTML = this.responseText;
+	  }
+	};
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+  }

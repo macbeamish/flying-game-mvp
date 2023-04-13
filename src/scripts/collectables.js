@@ -22,6 +22,10 @@ AFRAME.registerComponent('collectable-remove', {
     }  
 });
 
+// add below if(myAnchor.getAttribute("visible") === "false")
+// {
+//     return;
+//     } 
 AFRAME.registerComponent('collectable-collide', {
     init() {
 

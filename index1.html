@@ -29,7 +29,7 @@
   <!-- game logic -->
   <script src="./src/scripts/main.js"></script>
   
-  <style>
+  <!-- <style>
     #overlay {
       position: absolute;
       top: 20px;
@@ -41,11 +41,13 @@
       z-index: 1;
       padding: 20px;
     }
-  </style>
+  </style> -->
 
 </head>
 <body> 
+  
   <button onclick="pause()">Pause</button>
+  <button id="jump-but" >jump</button>
   <button onclick="resume()">Play Game</button>
   <div id="score">Score: 0</div>
   <div id="scoreboard" style="position: absolute; left: 50%; top: 11%; transform: translate(-50%, -50%); font-size: 5vh; font-family: Arial, Helvetica, sans-serif; font-weight: 800; color: #228AED;">0</div>
@@ -100,6 +102,7 @@
         sprite-width="3"
         sprite-collide
         sprite-speed = "5"
+        jump
         
       >
     </a-entity>

@@ -19,7 +19,7 @@
   }
   
   .content-image {
-    background-image: url('settings.png');
+    background-image: url('../src/assets/img/settings.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -81,10 +81,12 @@
     margin-top: 8vh;
     margin-left: 1vw;
     transform: translate(-14vw, 2vh);
+    opacity: 0;
   }
   .button-1 img {
     width: 20vh;
     margin-top: 15vh;
+    opacity: 0;
 
   }
   .button-3{
@@ -94,6 +96,7 @@
   .button-3 img{
     width: 60vh;
     height: 10vh;
+    opacity: 0;
  
   }
   </style>
@@ -101,24 +104,30 @@
 <body>
   <div class="background-image">
     <div class="content-image">
-        <a href="#" class="button-3"><img src="../next-arrow-button.png" alt="english"></a>
+      <!-- exit button -->
+        <a href="#" class="button-3"><img   onclick="loadPage('../src/views/button-overlay.html','overlay')" src="../src/assets/img/next-arrow-button.png" alt="Close menu"></a>
       <div class="content">
         <div class="instructions">
             <div class="instruction-1">
-                <a href="#" class="button-2"><img src="../next-arrow-button.png" alt="english"></a>
+              <!-- sound button -->
+                <a href="#" class="button-2"><img src="../src/assets/img/next-arrow-button.png" alt="Sound effects toggle"></a>
             </div>
-            
+            <!-- music button -->
             <div class="instruction-2">
-                <a href="#" class="button-2"><img src="../next-arrow-button.png" alt="english"></a>
+                <a href="#" class="button-2"><img src="../src/assets/img/next-arrow-button.png" alt="music toggle"></a>
                 
             </div>
                
         </div>
         <div class="button">
-          <a href="#" class="button-1"><img src="../next-arrow-button.png" alt="english"></a>
-          <a href="#" class="button-1"><img src="../next-arrow-button.png" alt="english"></a>
-          <a href="#" class="button-1"><img src="../next-arrow-button.png" alt="english"></a>
-          <a href="#" class="button-1"><img src="../next-arrow-button.png" alt="english"></a>
+          <!-- terms button -->
+          <a href="#" class="button-1"><img src="../src/assets/img/next-arrow-button.png" alt="terms and conditions"></a>
+          <!-- about button -->
+          <a href="#" class="button-1"><img src="../src/assets/img/next-arrow-button.png" alt="about"></a>
+          <!-- help button -->
+          <a href="#" class="button-1"><img src="../src/assets/img/next-arrow-button.png" alt="help"></a>
+          <!-- language button -->
+          <a href="#" class="button-1"><img src="../src/assets/img/next-arrow-button.png" alt="language"></a>
         </div>
       </div>
     </div>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Language</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+  <style>* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Paytone One', sans-serif;
+  }
+  
+  .background-image {
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-image {
+    background-image: url('../src/assets/img/empty-terms-box.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content {
+    max-width: 40vw;
+    padding-top: 10vw;
+    text-align: center;
+    color: Black;
+  }
+  .content img{
+    width: 20vh;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 4vh;
+    margin-top: 1vh;
+  }
+  
+
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(10vh)
+   
+  }
+  
+  .button-1, .button-2 {
+    
+    display: inline-block;
+    margin-right: 16vw;
+    margin-left: 16vw;
+  }
+  
+  .button-1 img  {
+    width: 10vh;
+  }
+  
+  .button-2 img {
+    width: 10vh;
+  }
+  .terms-button {
+    background-color: antiquewhite;
+    opacity: 0;
+    height: 20vh;
+    width: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(15vw, 5vh);   
+  }
+  .terms-button:hover {
+    cursor: pointer;
+  }
+
+
+  .scrollable-text {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent white background to improve text readability */
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+/* Custom scrollbar styles */
+.scrollable-text::-webkit-scrollbar {
+    width: 1vw; /* Adjust scrollbar width */
+}
+
+.scrollable-text::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust scrollbar color */
+    border-radius: 1vw; /* Adjust scrollbar border radius */
+}
+
+.scrollable-text p {
+    margin: 0 0 2%;
+}
+  </style>
+</head>
+<body>
+  <div class="background-image">
+    <div class="content-image">
+      <div class="content">
+        <div class="scrollable-text">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis turpis id lacus dapibus, a sollicitudin risus fermentum. Vivamus ut velit et ligula laoreet pulvinar. Sed eu enim eget magna cursus convallis. Integer tempor vel mi vitae pellentesque. Pellentesque at metus sem. Donec et nulla id sem mollis fermentum ac vitae metus.</p>
+
+            <p>Maecenas aliquam justo eu tortor luctus, a condimentum libero bibendum. Aenean vel vehicula elit, eget bibendum elit. Ut a neque vitae diam scelerisque porta. Duis nec suscipit sapien. Suspendisse vestibulum leo eget massa vulputate, a sodales elit pharetra. In hac habitasse platea dictumst. Proin in nisi in tellus efficitur aliquet. Sed feugiat nisl at lacinia fringilla. Curabitur feugiat dui in vehicula cursus. Vestibulum vel semper sapien. Morbi consequat non nisl non vulputate. Nam fermentum, metus in auctor interdum, nulla odio auctor sapien, nec scelerisque metus orci vel nulla.</p>
+
+            <!-- Add more paragraphs or content as needed -->
+        </div>
+        <button class="terms-button"></button>
+        <div class="buttons">
+            <a href="#" class="button-1"><img  onclick="loadPage('../src/views/terms.html','overlay')" src="../src/assets/img/next-arrow-button.png" alt="exit"></a>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
