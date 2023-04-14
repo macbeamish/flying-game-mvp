@@ -206,26 +206,14 @@ land.setAttribute('id', `${id}`);
 land.setAttribute('landnum', landnumber);
 land.setAttribute('gltf-model', `url(./src/assets/3dmodels/Lands/FlyingLand_${landnumber}.glb)#model`);
 land.setAttribute('position', {x: x, y: 0.1, z: -15});
-// land.setAttribute('geometry', {
-//     primitive: 'sphere',
-//     radius: 1,
-//   });
-// land.setAttribute('geometry', {
-//     primitive: 'box',
-//     width: 4,
-//     height: 4,
-//     depth: 2
-//   });
 land.setAttribute('land-tick', {});
 land.setAttribute('land-speed', landSpeed);
 land.setAttribute('land-move', {});
 land.setAttribute('land-collide', {});
-// land.setAttribute('collision-detection-land', {});
 land.setAttribute('land-height', landHeight);
 land.setAttribute('land-width', landWidth);  
 land.setAttribute('baloon-altitude', baloonAltitude);
 land.setAttribute('baloon-width', baloonWidth);
-// land.setAttribute('object-type', 'land');
 game.appendChild(land);
 // console.log(`land${id} added with land ${landnumber} at location x = ${x}`);
 }
