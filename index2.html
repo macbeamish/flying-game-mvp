@@ -1,81 +1,27 @@
-<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1"> -->
-   <!-- Must be run on a secure HTTPS Server -- Github pages?-->
-<!-- import aframe and then ar.js with image tracking / location based features -->
-<!-- A-Frame -->
+
 <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 
-<!-- Extras -->
-<!-- <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script> -->
 
-<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@fb96ab2/dist/aframe-extras.min.js"></script>
-
-<!-- Ammo Physics -->
-<script src="https://cdn.jsdelivr.net/gh/MozillaReality/ammo.js@8bbc0ea/builds/ammo.wasm.js"></script>
-
-<!-- A-Frame Physics -->
-<script src="./dist/aframe-physics-system.js"></script>
-
-<!-- Remote Debugging -->
-<script data-consolejs-channel="43507319-75a7-36fc-99e5-32f3cedabbb7" src="https://remotejs.com/agent/agent.js"></script>
-
-<!-- Game Logic -->
-<script src="./src/main.js"></script>
-
-</style>
 
 <body>
 
-  <a-scene physics="driver: ammo;  debug: true; debugDrawMode: 1;" stats="true"        device-orientation-permission-ui="enabled: false" 
-  renderer='antialias: true; colorManagement: true; sortObjects: false; precision: high; logarithmicDepthBuffer: false; physicallyCorrectLights: false;'
-  raycaster="objects: .clickable" 
-  cursor="rayOrigin: mouse"> 
-
-<a-box    id="backboard" position="0 2 -5" width="1" height="1" depth="0.2" 
-    ammo-body="type: static; emitCollisionEvents: true;" ammo-shape="type: box"  
-    material="color: tomato;"></a-box>
-<a-sphere id="ball" class="clickable" position="0 0.1 -2" radius="0.15" 
-    material="color: cyan;" foo></a-sphere>
-  
-
-    <!-- <a-entity camera look-controls wasd-controls position="0 1.6 3"><a-camera look-controls="pointerLockEnabled: true"></a-camera></a-entity> -->
-      
-  
+  <a-scene >   
     <a-assets>
             <!-- Lands -->
-            <a-asset-item id="skelly" src="./src/assets/3dmodels/Skeleton.gltf"></a-asset-item>
-    </a-assets>    
-    <!-- we use cors proxy to avoid cross-origin problems ATTENTION ammo-shape="mesh"! you need to set up your server -->
-    <!--  ammo-shape="mesh" -->
-      <a-box color="green" scale =" 50 50 0.01"  rotation="-90 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box"></a-box>
-      <a-box color="red" scale="1 1 1" position ="2 0.1 -3" animation="property: rotation; to: 0 360 0; loop: true; dur: 1000" random-hex class="clickable" ></a-box>
-      <a-entity id="bb" geometry="primitive: box" material="color: blue" id="bb" box-jump class="clickable" 
-                scale="1 2 1" position = "-2 5 -2" ammo-body="type: dynamic; emitCollisionEvents: true;"
-                ammo-shape="type: box"></a-entity>
-
-      
-      <a-box id="bb" box-jump class="clickable" color="blue" scale="1 1 1" position = "-2 5 -2" ammo-body="type: dynamic; emitCollisionEvents: true;" ammo-shape="type: box" ></a-box>
-      <a-entity
-        
-        class="clickable"
-        id="skeleton"
-        gltf-model="#skelly"
-        scale="1 1 1"
-        position="1 0.1 -3"
-        rotation="0 0 0"
-        ammo-body="type: dynamic ; emitCollisionEvents: true;"
-        ammo-shape="  type: cylinder; fit: manual; halfExtents: 0.5 1 0.5; offset:0 1 0"
-        sprite-jump
-
-    
-                   
-      
-       
-        
-        
-      >
-      </a-entity>
-      
+            <a-asset-item id="1" src="./src/assets/3dmodels/Lands/FlyingLand_1.glb" ></a-asset-item>
+            <a-asset-item id="2" src="./src/assets/3dmodels/Lands/FlyingLand_2.glb" ></a-asset-item>
+            <a-asset-item id="3" src="./src/assets/3dmodels/Lands/FlyingLand_3.glb" ></a-asset-item>
+            <a-asset-item id="4" src="./src/assets/3dmodels/Lands/FlyingLand_4.glb" ></a-asset-item>
+            <a-asset-item id="5" src="./src/assets/3dmodels/Lands/FlyingLand_5.glb" ></a-asset-item>
+            <a-asset-item id="6" src="./src/assets/3dmodels/Lands/FlyingLand_6.glb" ></a-asset-item>
+            <a-asset-item id="7" src="./src/assets/3dmodels/Lands/FlyingLand_7.glb" ></a-asset-item>       
+    </a-assets>      
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_1.glb)#model"scale="1 1 1"position="0 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_2.glb)#model"scale="1 1 1"position="6 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_3.glb)#model"scale="1 1 1"position="12 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_4.glb)#model"scale="1 1 1"position="18 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_5.glb)#model"scale="1 1 1"position="24 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_6.glb)#model"scale="1 1 1"position="30 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_7.glb)#model"scale="1 1 1"position="40 0 -15"></a-entity>
   </a-scene>
 </body>

@@ -36,13 +36,17 @@
 .image-button:hover {
     cursor: pointer;
 }
-
 .top-left {
     top: 2vh;
     left: 2vw;
 }
 
-.top-right {
+.top-right-1 {
+    top: 2vh;
+    right: 10vw;
+}
+
+.top-right-2 {
     top: 2vh;
     right: 2vw;
 }
@@ -50,9 +54,11 @@
     </style>
 </head>
 <body>
-    <div class="transparent-container" onclick="">
+    <div id="jump-trigger" class="transparent-container">
         <a href="#" onclick="loadPage('../src/views/help.html','overlay')" class="image-button top-left"><img src="../src/assets/img/help-button.png" alt="help"></a>
-        <a href="#" onclick="loadPage('../src/views/settings.html','overlay')" class="image-button top-right"><img src="../src/assets/img/settings-button.png" alt="settings"></a>
+        <a href="#" onclick="pause(); loadPage('../src/views/pause.html','overlay');" class="image-button top-right-1"><img src="../src/assets/img/pause-button.png" alt="pause"></a>
+        <a href="#" onclick="loadPage('../src/views/settings.html','overlay')" class="image-button top-right-2"><img src="../src/assets/img/settings-button.png" alt="settings"></a>
+       
         <div id="scoreboard" style="position: absolute; left: 50%; top: 11%; transform: translate(-50%, -50%); font-size: 5vh; font-family: Arial, Helvetica, sans-serif; font-weight: 800; color: #228AED;">0</div>
     </div>
 

@@ -1,6 +1,6 @@
 // below is less efficient as using two event triggers creates lag 
-
-document.getElementById("jump-but").addEventListener("click", () => {
+// this has been left in to help the next dev avoid this mistake
+document.getElementById("jump-trigger").addEventListener("click", () => {
   // Access the A-Frame entity with the "my-component" attached
   const myEntity = document.querySelector("[jump]");
 
@@ -21,7 +21,7 @@ AFRAME.registerComponent('jump', {
     // this.el.addEventListener('user-click', () => {
 
       // more efficent
-      var trigger = document.getElementById("jump-but");
+      var trigger = document.getElementById("jump-trigger");
       trigger.addEventListener("click", () => {
     sprite.velocity.addScaledVector(direction, speed);
     });
@@ -41,6 +41,7 @@ AFRAME.registerComponent('jump', {
         position.y = 0;
         sprite.velocity.set(0, 0, 0);
         pause()
+        GAMEOVER = true;
       }
       if (position.y > 13) {
         position.y = 13;

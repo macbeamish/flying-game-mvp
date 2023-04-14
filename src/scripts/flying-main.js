@@ -4,7 +4,34 @@ var LANDSPEED = 0.1;
 var COLLECTED = 0;
 var score = 0;
 var isPaused = true;
+var GAMEOVER = false;
 console.log("flying-main.js loaded");
+
+//todo
+function initializeFlyingGame() {
+    
+}
+function resetFlyingGame(){
+
+}
+
+
+
+AFRAME.registerComponent("check-gameover", {
+    init: function () {
+    },
+
+    tick: function (time, timeDelta) {
+        if (GAMEOVER) {
+            gameOver();
+        }
+    }
+});
+
+function gameOver() {
+    loadPage('../src/views/game-over.html','overlay');
+    document.getElementById("final-score").innerHTML = score;
+}
 
 AFRAME.registerComponent("score-tick", {
     init: function () {
@@ -47,24 +74,17 @@ AFRAME.registerComponent("score-tick", {
   });
   
 
+
+
 function pause() {
 	// console.log("Pause button clicked");
 	isPaused = true;
-	const entities = document.querySelectorAll('[land-move]');
-	entities.forEach(entity => {
-		entity.setAttribute('land-speed', 0)
-	});
-	//   const sprite = document.querySelector("#sprite");
-	//   sprite.setAttribute('sprite-speed', 0);
+	
 }
 
 function resume() {
 	// console.log('resume button clicked');
 	isPaused = false;
-	const entities = document.querySelectorAll('[land-move]');
-	entities.forEach(entity => {
-		entity.setAttribute('land-speed', 0.1)
-	});
 }
 
 
