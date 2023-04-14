@@ -37,14 +37,14 @@ AFRAME.registerComponent('jump', {
       sprite.velocity.y -= gravity * dt;
       position.addScaledVector(sprite.velocity, dt);
       sprite.setAttribute('current-velocity', sprite.velocity.y);
-      if (position.y < 0) {
-        position.y = 0;
+      if (position.y < -5) {
+        position.y = -5;
         sprite.velocity.set(0, 0, 0);
         pause()
         GAMEOVER = true;
       }
-      if (position.y > 13) {
-        position.y = 13;
+      if (position.y > 5) {
+        position.y = 5;
         sprite.velocity.set(0, 0, 0);
       }
       sprite.object3D.position.copy(position);
