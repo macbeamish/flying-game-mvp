@@ -27,19 +27,6 @@ AFRAME.registerComponent('land-tick', {
         // If the entity is off the left side of the screen
         if (landX < -50){
 
-            // Log a message to the console
-            // console.log(`${this.el.id} is off screen`);
-            // if(document.querySelector('scoreboard').getAttribute('score') != null){
-            //     lSpeed = 0.1;
-            
-            //     if(document.querySelector('scoreboard').getAttribute('score') > 100){
-            //         lSpeed = 0.12;
-            //     }
-            // }
-            // else{
-            //     console.log ("scoreboard is null");
-            //     lSpeed = 0.1;
-            // }
             // Set a new position for the entity
             var newLandPosition = 470;
 
@@ -87,6 +74,7 @@ AFRAME.registerComponent('land-collide', {
              && spriteY < landY + landHeight){
                 // console.log("land collision");
                 pause();
+                GAMEOVER = true;
                 
           
             }
@@ -113,24 +101,27 @@ AFRAME.registerComponent('land-move', {
 
     // Update the component on every animation frame
     tick: function (time, delta) { 
+
+        if(!isPaused) {
     
-        // Set direction of the entity
-        const direction = new THREE.Vector3(-51, 0, 0); 
-        var speed = this.el.getAttribute('land-speed');
-        this.el.velocity = new THREE.Vector3();
-        this.el.velocity.addScaledVector(direction, speed);
+            // Set direction of the entity
+            const direction = new THREE.Vector3(-51, 0, 0); 
+            var speed = this.el.getAttribute('land-speed');
+            this.el.velocity = new THREE.Vector3();
+            this.el.velocity.addScaledVector(direction, speed);
 
-        // Get the current position of the entity
-        const position = this.el.object3D.position.clone();
+            // Get the current position of the entity
+            const position = this.el.object3D.position.clone();
 
-        // Calculate the time since the last animation frame
-        const dt = delta / 1000;
+            // Calculate the time since the last animation frame
+            const dt = delta / 1000;
 
-        // Update the position of the entity based on its velocity
-        position.addScaledVector(this.el.velocity, dt);
+            // Update the position of the entity based on its velocity
+            position.addScaledVector(this.el.velocity, dt);
 
-        // Set the new position of the entity
-        this.el.object3D.position.copy(position);
+            // Set the new position of the entity
+            this.el.object3D.position.copy(position);
+        }
     }
 });
 
@@ -185,15 +176,15 @@ function landBuild(id, landnumber, x, landSpeed){
     switch(landnumber){
         case 1: landWidth = 2; landHeight = 1; break;
         case 2: landWidth = 2; landHeight = 1; break;
-        case 3: landWidth = 4; landHeight = 4; break;
-        case 4: landWidth = 2; landHeight = 4; break;
-        case 5: landWidth = 4; landHeight = 4; break;
+        case 3: landWidth = 2; landHeight = 3; break;
+        case 4: landWidth = 0.6; landHeight = 5.3; break;
+        case 5: landWidth = 2; landHeight = 3; break;
         case 6: landWidth = 4; landHeight = 5; break;
         case 7: landWidth = 2; landHeight = 6; break;
     }
 if(landnumber==1 || landnumber==2){
     baloonAltitude = 10;
-    baloonWidth = 2
+    baloonWidth = 2;
 }
 else{
     baloonWidth = 0;
@@ -205,27 +196,15 @@ const land = document.createElement('a-entity');
 land.setAttribute('id', `${id}`);
 land.setAttribute('landnum', landnumber);
 land.setAttribute('gltf-model', `url(./src/assets/3dmodels/Lands/FlyingLand_${landnumber}.glb)#model`);
-land.setAttribute('position', {x: x, y: 0.1, z: -15});
-// land.setAttribute('geometry', {
-//     primitive: 'sphere',
-//     radius: 1,
-//   });
-// land.setAttribute('geometry', {
-//     primitive: 'box',
-//     width: 4,
-//     height: 4,
-//     depth: 2
-//   });
+land.setAttribute('position', {x: x, y: 0, z: 0});
 land.setAttribute('land-tick', {});
 land.setAttribute('land-speed', landSpeed);
 land.setAttribute('land-move', {});
 land.setAttribute('land-collide', {});
-// land.setAttribute('collision-detection-land', {});
 land.setAttribute('land-height', landHeight);
 land.setAttribute('land-width', landWidth);  
 land.setAttribute('baloon-altitude', baloonAltitude);
 land.setAttribute('baloon-width', baloonWidth);
-// land.setAttribute('object-type', 'land');
 game.appendChild(land);
 // console.log(`land${id} added with land ${landnumber} at location x = ${x}`);
 }

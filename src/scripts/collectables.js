@@ -27,10 +27,14 @@ AFRAME.registerComponent('collectable-remove', {
 //     return;
 //     } 
 AFRAME.registerComponent('collectable-collide', {
+
     init() {
 
     },
     tick(time, timeDelta){     
+        
+        if (this.el.getAttribute('collided') === 'false') {
+        
             //Get obj position and size
             var worldPosition = new THREE.Vector3();          
             this.el.object3D.getWorldPosition(worldPosition);
@@ -54,10 +58,14 @@ AFRAME.registerComponent('collectable-collide', {
                 && (spriteX + (spriteWidth/2) > objX - (objWidth/2))
                 && (spriteX - (spriteWidth/2) < objX + (objWidth/2))){
                 // console.log("balloon collision" + baloonAltitude + ";" + spriteHeight + ";" + spriteY);
+                
+                this.el.setAttribute('collided', 'true');
                 this.el.setAttribute('visible', 'false');
                 COLLECTED += 1;
                 
             }
+        }
+        
 
 
     }
@@ -131,6 +139,7 @@ function spawnCollectable(){
     collectable.setAttribute('collectable-move', '');
     collectable.setAttribute('collectable-height', 1);
     collectable.setAttribute('collectable-width', 0.7);  
+    collectable.setAttribute('collided', 'false');
     // collectable.setAttribute('object-type', 'collectable');
     // collectable.setAttribute('collision-detection-collectable', {});
     // collectable.setAttribute('geometry', {

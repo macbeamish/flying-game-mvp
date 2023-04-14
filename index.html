@@ -50,11 +50,6 @@
     })
   </script>
   <div id=pg>
-    <!-- <div id ="game-overlay">
-        <a href="#" class="image-button top-right"><img onclick="buildPage('../src/views/settings.html','overlay')"  src="../src/assets/img/help-button.png" alt="help"></a>
-        <a href="#" class="image-button top-left"><img  onclick="buildPage('../src/views/settings.html','overlay')"  src="../src/assets/img/settings-button.png" alt="settings"></a>
-     </div>  -->
-
     <div id="overlay"></div>
 
     <div id="loading" class="hidden container-fluid">
@@ -63,13 +58,10 @@
             object-fit: cover;
             width: 100%;
             height: 100vh;
-            margin: auto;
-          " />
+            margin: auto;" 
+            />
     </div>
     <div id="scanning" class="hidden container-fluid">
-      </head>
-
-      <body>
         <div class="container-fluid vh-100 px-0 m-0">
           <div class="row pt-5 bg-scan">
 
@@ -122,6 +114,7 @@
 
 
     </div>
+
     <canvas id="canvas" style="
     position: absolute;
     width: 100%;
@@ -132,7 +125,7 @@
   "></canvas>
     <a-scene
       mindar-image="imageTargetSrc: /src/assets/targets/targets.mind; uiError:no; uiLoading: #loading ; uiScanning: #scanning"
-      color-space="sRGB" webxr="optionalFeatures: dom-overlay; overlayElement: #game-overlay"
+      color-space="sRGB"
       vr-mode-ui="enabled: false"
       renderer='colorManagement: true; sortObjects: false; precision: high; logarithmicDepthBuffer: false; physicallyCorrectLights: false;'
       device-orientation-permission-ui="enabled: false" style="position: absolute; z-index: 1">
@@ -142,40 +135,28 @@
       </a-camera>
       <!-- assets -->
       <a-assets id="assets">
-        <a-asset-item id="1" src="./src/assets/3dmodels/Lands/FlyingLand_1.glb"></a-asset-item>
-        <a-asset-item id="2" src="./src/assets/3dmodels/Lands/FlyingLand_2.glb"></a-asset-item>
-        <a-asset-item id="3" src="./src/assets/3dmodels/Lands/FlyingLand_3.glb"></a-asset-item>
-        <a-asset-item id="4" src="./src/assets/3dmodels/Lands/FlyingLand_4.glb"></a-asset-item>
-        <a-asset-item id="5" src="./src/assets/3dmodels/Lands/FlyingLand_5.glb"></a-asset-item>
-        <a-asset-item id="6" src="./src/assets/3dmodels/Lands/FlyingLand_6.glb"></a-asset-item>
-        <a-asset-item id="7" src="./src/assets/3dmodels/Lands/FlyingLand_7.glb"></a-asset-item>
-        <a-asset-item id="skelly" src="./src/assets/3dmodels/Sprites/Skeleton.gltf"></a-asset-item>
+      <!-- Lands -->
+        <a-asset-item id="1" src="./src/assets/3dmodels/Lands/FlyingLand_1.glb" ></a-asset-item>
+        <a-asset-item id="2" src="./src/assets/3dmodels/Lands/FlyingLand_2.glb" ></a-asset-item>
+        <a-asset-item id="3" src="./src/assets/3dmodels/Lands/FlyingLand_3.glb" ></a-asset-item>
+        <a-asset-item id="4" src="./src/assets/3dmodels/Lands/FlyingLand_4.glb" ></a-asset-item>
+        <a-asset-item id="5" src="./src/assets/3dmodels/Lands/FlyingLand_5.glb" ></a-asset-item>
+        <a-asset-item id="6" src="./src/assets/3dmodels/Lands/FlyingLand_6.glb" ></a-asset-item>
+        <a-asset-item id="7" src="./src/assets/3dmodels/Lands/FlyingLand_7.glb" ></a-asset-item> 
+
+        <!-- Collectables -->
+        <a-asset-item id="c1" src="./src/assets/3dmodels/Collectables/egg1.glb" ></a-asset-item>
+        <a-asset-item id="c2" src="./src/assets/3dmodels/Collectables/egg2.glb" ></a-asset-item>
+        <a-asset-item id="c3" src="./src/assets/3dmodels/Collectables/egg3.glb" ></a-asset-item>
+        <a-asset-item id="c4" src="./src/assets/3dmodels/Collectables/egg4.glb" ></a-asset-item> 
 
         <a-asset-item id="bunny" src="./src/assets/3dmodels/Sprites/Bunny_01.gltf"></a-asset-item>
         <a-asset-item id="easter-egg" src="./src/assets/3dmodels/Sprites/egg2.gltf"></a-asset-item>
         <a-asset-item id="flower" src="./src/assets/3dmodels/Sprites/flower.gltf"></a-asset-item>
         <a-asset-item id="balloon" src="./src/assets/3dmodels/Sprites/balloon.gltf"></a-asset-item>
       </a-assets>
-
-
-
-
-      <a-entity mindar-image-target="targetIndex: 1">
-        <a-entity id="game" position="0 -1.9 0">
-        </a-entity>
-        <!-- clear Plane -->
-        <a-plane color="blue" position="0 0 -20" height="100" width="100" rotation="0 0 0" class="clickable"
-          material="opacity: 0.0; transparent: true"></a-plane>
-        <!-- Green Horizontal box -->
-        <a-box color="green" scale=" 10 0.01 10" position="0 -5 -10" rotation="0 0 0"
-          ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box" class="clickable"></a-box>
-        <a-entity id="sprite" gltf-model="url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model" scale="1 1 1"
-          position="0 15 -15" rotation="0 -180 0" geometry="primitive: box; width: 4; height: 2; depth: 1"
-          sprite-height="2" sprite-width="4" sprite-collide sprite-speed="5" jump class="clickable">
-        </a-entity>
-      </a-entity>
-
-
+      
+    <!-- Photo Game -->
       <a-entity id="photo-game-target" mindar-image-target="targetIndex: 0">
         <a-entity position="0 -1.9 0">
           <a-gltf-model id="bunnyModel" src="#bunny" scale="0.5 0.5 0.5" position="0 2 -3"
@@ -187,13 +168,42 @@
             visible="false"></a-gltf-model>
 
           <a-gltf-model id="eggModel" src="#easter-egg" scale="1 1 1" position="0 2 -3" visible="false"></a-gltf-model>
+          
+         </a-entity>
+      </a-entity>
+
+    
+    <!-- Flying Game -->
+    <a-entity id ="flying-game-target" mindar-image-target="targetIndex: 1">
+      <a-entity id = "game-container" collectable-tick score-tick scale="0.1 0.1 0.1" position="0 -2 -5">
+        <a-entity id="game" position = "0 -5 -15">
+        <!-- Green Horizontal box -->
+        <a-box color="green" scale =" 50 0.1 4" position="0 -5 -15"  rotation="0 0 0"></a-box>
+          <a-entity
+          id="sprite"
+          gltf-model="url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model"
+          scale="1 1 1"
+          position="0 10 0"
+          rotation="0 -180 0"
+          sprite-height="1"
+          sprite-width="3"
+          jump
+        >
         </a-entity>
       </a-entity>
+    </a-entity>
+    </a-entity>
     </a-scene>
   </div>
-</body>
-<!-- game logic -->
-<script src="./src/scripts/main.js"></script>
-<script src="./src/scripts/sprite.js"></script>
-<script src="./src/scripts/lands.js"></script>
-<script src="./src/scripts/photo-game.js"></script>
+
+
+  </body>
+  
+  <!-- game logic -->
+  <script src="./src/scripts/main.js"></script>
+  <script src="./src/scripts/sprite.js"></script>
+  <script src="./src/scripts/lands.js"></script>
+  <script src="./src/scripts/collectables.js"></script>
+  <script src="./src/scripts/flying-main.js"></script>
+  <script src="./src/scripts/photo-game.js"></script>
+

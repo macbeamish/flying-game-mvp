@@ -47,10 +47,10 @@
 <body> 
   
   <button onclick="pause()">Pause</button>
-  <button id="jump-but" >jump</button>
+  <button id="jump-trigger" >jump</button>
   <button onclick="resume()">Play Game</button>
-  <div id="score">Score: 0</div>
   <div id="scoreboard" style="position: absolute; left: 50%; top: 11%; transform: translate(-50%, -50%); font-size: 5vh; font-family: Arial, Helvetica, sans-serif; font-weight: 800; color: #228AED;">0</div>
+ 
     <div>
     <a-scene
     animation-play="false"
@@ -87,27 +87,24 @@
       <!-- <a-asset-item id="sprite" src="/src/assets/3dmodels/Sprites/FlyingBaloon.glb"></a-asset-item> -->
     </a-assets>
     <a-entity id="game" collectable-tick score-tick>
-    </a-entity>
     <a-plane jump class="clickable" color="blue" scale ="1000 1000 1000" position = "0 0 -50"  material="opacity: 0.0; transparent: true"></a-plane>
     <a-box color="green" scale =" 100 0.01 50"  rotation="0 0 0" ></a-box>
-    <a-entity score></a-entity>
     <a-entity
         id="sprite"
         gltf-model="url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model"
         scale="1 1 1"
         position="0 12 -15"
         rotation="0 -180 0"
-        geometry="primitive: box; width: 4; height: 2; depth: 4"
         sprite-height="1"
         sprite-width="3"
-        sprite-collide
         sprite-speed = "5"
         jump
-        
       >
     </a-entity>
+  </a-entity>
   </a-scene>
 </body>
 <script src="./src/scripts/lands.js"></script>
 <script src="./src/scripts/sprite.js"></script>
 <script src="./src/scripts/collectables.js"></script>
+<script src="./src/scripts/flying-main.js"></script>
