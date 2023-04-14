@@ -139,26 +139,26 @@
       
 
       <a-entity id ="flying-game-target" mindar-image-target="targetIndex: 0">
-        <a-entity id="game" position = "0 -5 -15">
+        <a-entity id = "game-container" scale="0.1 0.1 0.1" position="0 -2 -20">
+          <a-entity id="game" position = "0 -5 -15"></a-entity>
+          <!-- Green Horizontal box -->
+          <a-box color="green" scale =" 50 0.01 4" position="0 -5 -15"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box" class = "clickable"></a-box>
+          <a-entity
+          id="sprite"
+          gltf-model="url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model"
+          scale="1 1 1"
+          position="0 2 -15"
+          rotation="0 -180 0"
+          geometry="primitive: box; width: 4; height: 2; depth: 1"
+          sprite-height="2"
+          sprite-width="4"
+          sprite-collide
+          sprite-speed = "5"
+          jump
+          class="clickable"
+          >
+          </a-entity>
         </a-entity>
-        <!-- Green Horizontal box -->
-        <a-box color="green" scale =" 100 0.01 10" position="0 -5 -15"  rotation="0 0 0" ammo-body="type: static; emitCollisionEvents: true" ammo-shape="type: box" class = "clickable"></a-box>
-        <a-entity
-        id="sprite"
-        gltf-model="url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model"
-        scale="1 1 1"
-        position="0 2 -15"
-        rotation="0 -180 0"
-        geometry="primitive: box; width: 4; height: 2; depth: 1"
-        sprite-height="2"
-        sprite-width="4"
-        sprite-collide
-        sprite-speed = "5"
-        jump
-        class="clickable"
-        
-      >
-    </a-entity>
       </a-entity>
     </a-scene>
   </div>
