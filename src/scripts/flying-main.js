@@ -42,8 +42,8 @@ function initializeFlyingGame() {
  gameEntity.appendChild(spriteEntity);
 
  // Add the game entity to the scene
- const scene = document.querySelector("a-scene");
- scene.appendChild(gameEntity);
+ const gameContainer = document.querySelector("#game-container");
+ gameContainer.appendChild(gameEntity);
 }
 function resetFlyingGame(){
     // Remove the existing entity
