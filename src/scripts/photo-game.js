@@ -243,8 +243,8 @@ AFRAME.registerComponent('photo-click', {
 //Function to control UI visibility
 function setUIVisible(ui) {
     if (ui) {
-        document.querySelector('#info-button').setAttribute('visible', 'false');
-        document.querySelector('#setting-button').setAttribute('visible', 'false');
+        // document.querySelector('#info-button').setAttribute('visible', 'false');
+        // document.querySelector('#setting-button').setAttribute('visible', 'false');
         document.querySelector('#flower-button').setAttribute('visible', 'false');
         document.querySelector('#bunny-button').setAttribute('visible', 'false');
         document.querySelector('#photo-button').setAttribute('visible', 'false');
@@ -253,8 +253,8 @@ function setUIVisible(ui) {
 
         console.log("hiding ui elements");
     } else {
-        document.querySelector('#info-button').setAttribute('visible', 'true');
-        document.querySelector('#setting-button').setAttribute('visible', 'true');
+        // document.querySelector('#info-button').setAttribute('visible', 'true');
+        // document.querySelector('#setting-button').setAttribute('visible', 'true');
         document.querySelector('#flower-button').setAttribute('visible', 'true');
         document.querySelector('#bunny-button').setAttribute('visible', 'true');
         document.querySelector('#photo-button').setAttribute('visible', 'true');
