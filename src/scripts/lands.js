@@ -211,6 +211,5 @@ game.appendChild(land);
 
 
 
-terraForm();
 
 
