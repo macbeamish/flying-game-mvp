@@ -9,16 +9,33 @@ if (FIRST_SCREEN) {
 	FIRST_SCREEN = false;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-	const sceneEl = document.querySelector("a-scene")
-	const arSystem = sceneEl.systems["mindar-image-system"]
+AFRAME.registerComponent("target-find-ui-trigger", {
+	init: function () {
+		if(GENERAL_ONBOARDING_COMPLETE){
+			const flyingTarget = document.querySelector('#flying-game-target');
+			const photoTarget = document.querySelector('#photo-game-target');
 
-	const flyingTarget = document.querySelector('#flying-game-target');
-	flyingTarget.addEventListener("targetFound", event => {
-		console.log("flying-game-target found");
-		loadPage("../src/views/flying-game-overlay.html",'overlay');
-	});
-});
+			flyingTarget.addEventListener("targetFound", (event) => {
+				console.log("flying target found")
+				loadPage("../src/views/flying-game-overlay.html",'overlay');
+			
+			})
+			flyingTarget.addEventListener("targetLost", (event) => {
+				console.log("flying target lost")
+				loadPage("../src/views/flying-game-overlay.html",'overlay');
+			})
+		}
+		
+	},
+})
+
+function enableScan(){
+	const flyingScanner = document.querySelector('#flying-game-target');
+	const photoScanner = document.querySelector('#photo-game-target');
+
+	flyingScanner.setAttribute('mindar-image-target', "targetIndex: 1");
+	photoScanner.setAttribute('mindar-image-target', "targetIndex: 0");
+}
 
 
 function loadPage(url, divId) {

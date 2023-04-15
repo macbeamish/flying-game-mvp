@@ -103,7 +103,7 @@
           </div>
         </div>
     </div>
-
+    <!-- Canvas for photo game screenshot -->
     <canvas id="canvas" style="
     position: absolute;
     width: 100%;
@@ -124,7 +124,7 @@
       </a-camera>
       <!-- assets -->
       <a-assets id="assets">
-      <!-- Lands -->
+      <!-- Flying Game Lands -->
         <a-asset-item id="1" src="./src/assets/3dmodels/Lands/FlyingLand_1.glb" ></a-asset-item>
         <a-asset-item id="2" src="./src/assets/3dmodels/Lands/FlyingLand_2.glb" ></a-asset-item>
         <a-asset-item id="3" src="./src/assets/3dmodels/Lands/FlyingLand_3.glb" ></a-asset-item>
@@ -133,20 +133,23 @@
         <a-asset-item id="6" src="./src/assets/3dmodels/Lands/FlyingLand_6.glb" ></a-asset-item>
         <a-asset-item id="7" src="./src/assets/3dmodels/Lands/FlyingLand_7.glb" ></a-asset-item> 
 
-        <!-- Collectables -->
+        <!-- Flying Game Collectables -->
         <a-asset-item id="c1" src="./src/assets/3dmodels/Collectables/egg1.glb" ></a-asset-item>
         <a-asset-item id="c2" src="./src/assets/3dmodels/Collectables/egg2.glb" ></a-asset-item>
         <a-asset-item id="c3" src="./src/assets/3dmodels/Collectables/egg3.glb" ></a-asset-item>
         <a-asset-item id="c4" src="./src/assets/3dmodels/Collectables/egg4.glb" ></a-asset-item> 
 
+        <!-- Photo Game Models -->
         <a-asset-item id="bunny" src="./src/assets/3dmodels/Sprites/Bunny_01.gltf"></a-asset-item>
         <a-asset-item id="easter-egg" src="./src/assets/3dmodels/Sprites/egg2.gltf"></a-asset-item>
         <a-asset-item id="flower" src="./src/assets/3dmodels/Sprites/flower.gltf"></a-asset-item>
         <a-asset-item id="balloon" src="./src/assets/3dmodels/Sprites/balloon.gltf"></a-asset-item>
       </a-assets>
       
+
+      <!--  mindar-image-target="targetIndex: 0" -->
     <!-- Photo Game -->
-      <a-entity id="photo-game-target" mindar-image-target="targetIndex: 0">
+      <a-entity id="photo-game-target" target-find-ui-trigger>
         <a-entity position="0 -1.9 0">
           <a-gltf-model id="bunnyModel" src="#bunny" scale="0.5 0.5 0.5" position="0 2 -3"
             visible="false"></a-gltf-model>
@@ -161,9 +164,9 @@
          </a-entity>
       </a-entity>
 
-    
+    <!--  mindar-image-target="targetIndex: 1" -->
     <!-- Flying Game -->
-    <a-entity id ="flying-game-target" mindar-image-target="targetIndex: 1">
+    <a-entity id ="flying-game-target" target-find-ui-trigger>
       <a-entity id = "game-container"  scale="1 1 1" position="0 -2 -5">
         <!-- <a-entity id="flying-game" collectable-tick score-tick position = "0 -5 -15">
         <a-box color="green" scale =" 50 0.1 4" position="0 -5 -15"  rotation="0 0 0"></a-box>
