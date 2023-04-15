@@ -11,39 +11,41 @@ console.log("flying-main.js loaded");
 //todo
 function initializeFlyingGame() {
  // Create the game entity
- const gameEntity = document.createElement("a-entity");
- gameEntity.setAttribute("id", "flying-game");
- gameEntity.setAttribute("collectable-tick", "");
- gameEntity.setAttribute("score-tick", "");
- gameEntity.setAttribute("position", "0 -5 -15");
+//  const gameEntity = document.createElement("a-entity");
+//  gameEntity.setAttribute("id", "flying-game");
+//  gameEntity.setAttribute("collectable-tick", "");
+//  gameEntity.setAttribute("score-tick", "");
+//  gameEntity.setAttribute("position", "0 -5 -15");
 
- // Create the green horizontal box
- const greenBox = document.createElement("a-box");
- greenBox.setAttribute("color", "green");
- greenBox.setAttribute("scale", "50 0.1 4");
- greenBox.setAttribute("position", "0 -5 -15");
- greenBox.setAttribute("rotation", "0 0 0");
+//  // Create the green horizontal box
+//  const greenBox = document.createElement("a-box");
+//  greenBox.setAttribute("color", "green");
+//  greenBox.setAttribute("scale", "50 0.1 4");
+//  greenBox.setAttribute("position", "0 -5 -15");
+//  greenBox.setAttribute("rotation", "0 0 0");
 
- // Add the green horizontal box to the game entity
- gameEntity.appendChild(greenBox);
+//  // Add the green horizontal box to the game entity
+//  gameEntity.appendChild(greenBox);
 
- // Create the sprite entity
- const spriteEntity = document.createElement("a-entity");
- spriteEntity.setAttribute("id", "sprite");
- spriteEntity.setAttribute("gltf-model", "url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model");
- spriteEntity.setAttribute("scale", "1 1 1");
- spriteEntity.setAttribute("position", "0 10 0");
- spriteEntity.setAttribute("rotation", "0 -180 0");
- spriteEntity.setAttribute("sprite-height", "1");
- spriteEntity.setAttribute("sprite-width", "3");
- spriteEntity.setAttribute("jump", "");
+//  // Create the sprite entity
+//  const spriteEntity = document.createElement("a-entity");
+//  spriteEntity.setAttribute("id", "sprite");
+//  spriteEntity.setAttribute("gltf-model", "url(./src/assets/3dmodels/Sprites/FlyingBaloon.glb)#model");
+//  spriteEntity.setAttribute("scale", "1 1 1");
+//  spriteEntity.setAttribute("position", "0 10 0");
+//  spriteEntity.setAttribute("rotation", "0 -180 0");
+//  spriteEntity.setAttribute("sprite-height", "1");
+//  spriteEntity.setAttribute("sprite-width", "3");
+//  spriteEntity.setAttribute("jump", "");
 
- // Add the sprite entity to the game entity
- gameEntity.appendChild(spriteEntity);
+//  // Add the sprite entity to the game entity
+//  gameEntity.appendChild(spriteEntity);
 
- // Add the game entity to the scene
- const scene = document.querySelector("a-scene");
- scene.appendChild(gameEntity);
+//  // Add the game entity to the scene
+//  const gameContainer = document.querySelector("#game-container");
+//  gameContainer.appendChild(gameEntity);
+const sprite = document.querySelector("#sprite");
+sprite.setAttribute('jump','');
 }
 function resetFlyingGame(){
     // Remove the existing entity
