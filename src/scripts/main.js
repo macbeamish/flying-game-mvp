@@ -22,11 +22,23 @@ AFRAME.registerComponent("target-find-ui-trigger", {
 			})
 			flyingTarget.addEventListener("targetLost", (event) => {
 				console.log("flying target lost")
+			})
+		
+
+			photoTarget.addEventListener("targetFound", (event) => {
+				console.log("photo target found")
 				loadPage("../src/views/flying-game-overlay.html",'overlay');
+			
+			})
+			photoTarget.addEventListener("targetLost", (event) => {
+				console.log("photo target lost")
 			})
 		}
+			
 		
-	},
+		
+		
+	}
 })
 
 function enableScan(){

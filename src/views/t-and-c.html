@@ -14,6 +14,7 @@
   }
   
   .background-image {
+    background-image: url('../src/assets/img/green-background.png');
     background-size: cover;
     height: 100vh;
     width: 100vw;
@@ -35,8 +36,8 @@
   }
   
   .content {
+    max-height:30vh;
     max-width: 40vw;
-    padding-top: 10vw;
     text-align: center;
     color: Black;
   }
@@ -45,19 +46,16 @@
   }
   
   h1 {
-    font-size: 24px;
+    font-size: 4vh;
     margin-bottom: 4vh;
     margin-top: 1vh;
   }
-  
-
-  
+    
   .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
     transform: translateY(10vh)
-   
   }
   
   .button-1, .button-2 {
@@ -74,27 +72,13 @@
   .button-2 img {
     width: 10vh;
   }
-  .terms-button {
-    background-color: antiquewhite;
-    opacity: 0;
-    height: 20vh;
-    width: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translate(15vw, 5vh);   
-  }
-  .terms-button:hover {
-    cursor: pointer;
-  }
-
 
   .scrollable-text {
     width: 100%;
-    height: 100%;
+    height: 50vh;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent white background to improve text readability */
+    background-color: rgba(255, 255, 255, 0); /* Optional: Add a semi-transparent white background to improve text readability */
     padding: 2%;
     box-sizing: border-box;
 }
@@ -125,10 +109,8 @@
 
             <!-- Add more paragraphs or content as needed -->
         </div>
-        <button class="terms-button"></button>
         <div class="buttons">
-            <a href="#" class="button-1"><img  onclick="loadPage('../src/views/terms.html','overlay')" src="../src/assets/img/next-arrow-button.png" alt="exit"></a>
-           
+            <a href="#" class="button-1"><img  onclick="loadPage('../src/views/terms.html','overlay')" src="../src/assets/img/exit.png" alt="exit"></a>  
         </div>
       </div>
     </div>

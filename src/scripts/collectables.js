@@ -57,7 +57,6 @@ AFRAME.registerComponent('collectable-tick', {
         if(IS_PAUSED == false){
             var roll =  getRandomInt(1,200);
             if(roll == 1){
-                console.log("bingo")
                 spawnCollectable()
             }
         }
@@ -97,7 +96,7 @@ AFRAME.registerComponent('collectable-move', {
 });
 
 function spawnCollectable(){
-    var collectableNum = getRandomInt(1,4);
+    var collectableNum = getRandomInt(1,5);
      var positionX = getRandomInt(10,50);
      var positionY = getRandomInt(3,10);
      var positionZ = -14.5;

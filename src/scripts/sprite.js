@@ -23,6 +23,7 @@ AFRAME.registerComponent('jump', {
       // more efficent
       var trigger = document.getElementById("jump-trigger");
       trigger.addEventListener("click", () => {
+        console.log("jump-trigger clicked");
     sprite.velocity.addScaledVector(direction, speed);
     });
   },

@@ -5,11 +5,13 @@
 }
 
 .bg-hole{
-  opacity: 0.0;
-  height: 25vh;
+  background-color: rgba(0, 0, 0, 0);
+  height: 60vh;
+  border: 4px dashed white;
+  
 }
 .bottom{
-  height: 15vh;
+  height: 17vh;
 
 }
 
@@ -72,11 +74,11 @@ height: 10vh;
 height: 10vh;
 }
 
-.top-right img {        
+.top-right img {
 height: 10vh;
 }
 .scan-title{
-transform: translate(-3vw, -5vh);
+transform: translate(-2vw, -5vh);
 }
 .scan-title img{
 height: 15vh;
