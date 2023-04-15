@@ -1,31 +1,4 @@
 
-AFRAME.registerComponent('collectable-remove', {
-    // Initialize the component
-    init() {
-    },
-    // Update the component on every animation frame
-    tick(time, timeDelta){
-        // Select the "game" HTML element
-        var game = document.querySelector('#game');
-        
-        // Get the world position of the current entity
-        var worldPosition = new THREE.Vector3();          
-        this.el.object3D.getWorldPosition(worldPosition);
-
-        // Extract the x position from the world position vector
-        var objX = worldPosition.x;
-
-        // If the entity is off the left side of the screen
-        if (objX < -10){
-            game.removeChild(this.el);  
-        }
-    }  
-});
-
-// add below if(myAnchor.getAttribute("visible") === "false")
-// {
-//     return;
-//     } 
 AFRAME.registerComponent('collectable-collide', {
 
     init() {
@@ -81,8 +54,8 @@ AFRAME.registerComponent('collectable-tick', {
 
     // Update the component on every animation frame
     tick(time, timeDelta){
-        if(isPaused == false){
-            var roll =  getRandomInt(1,300);
+        if(IS_PAUSED == false){
+            var roll =  getRandomInt(1,200);
             if(roll == 1){
                 console.log("bingo")
                 spawnCollectable()
@@ -100,7 +73,7 @@ AFRAME.registerComponent('collectable-move', {
 
     // Update the component on every animation frame
     tick: function (time, delta) { 
-        if(isPaused == false){
+        if(IS_PAUSED == false){
     
             // Set direction of the entity
             const direction = new THREE.Vector3(-51, 0, 0); 
@@ -140,6 +113,6 @@ function spawnCollectable(){
     collectable.setAttribute('collectable-height', 1);
     collectable.setAttribute('collectable-width', 0.7);  
     collectable.setAttribute('collided', 'false');
-    var game = document.querySelector('#game');
+    var game = document.querySelector('#flying-game');
     game.appendChild(collectable);
 }

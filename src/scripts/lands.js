@@ -14,7 +14,7 @@ AFRAME.registerComponent('land-tick', {
     tick(time, timeDelta){
 
         // Select the "game" HTML element
-        var game = document.querySelector('#game');
+        var game = document.querySelector('#flying-game');
         
         // Get the world position of the current entity
         var worldPosition = new THREE.Vector3();          
@@ -102,7 +102,7 @@ AFRAME.registerComponent('land-move', {
     // Update the component on every animation frame
     tick: function (time, delta) { 
 
-        if(!isPaused) {
+        if(!IS_PAUSED) {
     
             // Set direction of the entity
             const direction = new THREE.Vector3(-51, 0, 0); 
@@ -191,7 +191,7 @@ else{
     baloonAltitude = 100;
 } 
    
-const game = document.querySelector('#game');
+const game = document.querySelector('#flying-game');
 const land = document.createElement('a-entity');
 land.setAttribute('id', `${id}`);
 land.setAttribute('landnum', landnumber);

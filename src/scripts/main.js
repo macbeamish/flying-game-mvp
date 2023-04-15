@@ -1,40 +1,41 @@
+var GENERAL_ONBOARDING_COMPLETE = false;
+var FIRST_SCREEN = true;
 
-var firstscreen = true;
 console.log("main.js loaded");
 
-if (firstscreen) {
+if (FIRST_SCREEN) {
 	loadPage("../src/views/language.html",'overlay');
 	console.log('overlaying first screen');
-	firstscreen = false;
+	FIRST_SCREEN = false;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
 	const sceneEl = document.querySelector("a-scene")
 	const arSystem = sceneEl.systems["mindar-image-system"]
 
-const flyingTarget = document.querySelector('#flying-game-target');
-flyingTarget.addEventListener("targetFound", event => {
-  console.log("flying-game-target found");
-  loadPage("../src/views/flying-game-overlay.html",'overlay');
-});
+	const flyingTarget = document.querySelector('#flying-game-target');
+	flyingTarget.addEventListener("targetFound", event => {
+		console.log("flying-game-target found");
+		loadPage("../src/views/flying-game-overlay.html",'overlay');
+	});
 });
 
 
-  function loadPage(url, divId) {
-	var xmlhttp;
-	if (window.XMLHttpRequest) {
-	  xmlhttp = new XMLHttpRequest();
-	} else {
-	  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+function loadPage(url, divId) {
+var xmlhttp;
+if (window.XMLHttpRequest) {
+	xmlhttp = new XMLHttpRequest();
+} else {
+	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+	document.getElementById(divId).innerHTML = this.responseText;
 	}
-	xmlhttp.onreadystatechange = function() {
-	  if (this.readyState == 4 && this.status == 200) {
-		document.getElementById(divId).innerHTML = this.responseText;
-	  }
-	};
-	xmlhttp.open("GET", url, true);
-	xmlhttp.send();
-  }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+}
 
 
 function removeContent() {
