@@ -175,10 +175,6 @@ function takePhoto() {
         setUIVisible(UiVisible);
         UiVisible = true;
     }, 1000);
-
-
-    // document.querySelector("video").play();
-    // });
 }
 
 
@@ -239,9 +235,6 @@ AFRAME.registerComponent('photo-click', {
                     setUIVisible(UiVisible);
                     UiVisible = true;
                 }, 1000);
-
-
-                // document.querySelector("video").play();
             });
         });
     }
@@ -271,28 +264,16 @@ function setUIVisible(ui) {
     }
 };
 
-// function engClick() {
-//     var engButton = document.querySelector("#engButton");
-//     var divLanguages = document.querySelector("#language");
-//     var background = document.querySelector("#background");
-//     var scene = document.querySelector("#scene");
+function engClick() {
+    var engButton = document.querySelector("#engButton");
+    var divLanguages = document.querySelector("#language");
+    var background = document.querySelector("#background");
+    var scene = document.querySelector("#scene");
 
-//     console.log("eng button clicked");
+    console.log("eng button clicked");
 
-//     background.style.display = "none";
-//     divLanguages.style.display = "none";
-//     scene.setAttribute("visible", "true");
+    background.style.display = "none";
+    divLanguages.style.display = "none";
+    scene.setAttribute("visible", "true");
 
-// };
-
-function eggClick() {
-    // var engButton = document.querySelector("#engButton");
-    // var divLanguages = document.querySelector("#language");
-
-    // const target = document.querySelector('#egg-button');
-    // target.addEventListener("click", function () {
-    //     console.log("egg button clicked 2");
-    //     engButton.style.display = "block";
-    //     divLanguages.style.display = "block";
-    // })
-}
+};
