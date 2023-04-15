@@ -1,11 +1,12 @@
 
 .bg-scan{
     background-color: rgb(128, 20, 238,0.25); 
+    text-align: center;
 }
 
 .bg-hole{
   opacity: 0.0;
-  height: 35vh;
+  height: 25vh;
 }
 .bottom{
   height: 15vh;
@@ -73,4 +74,10 @@ height: 10vh;
 
 .top-right img {        
 height: 10vh;
+}
+.scan-title{
+transform: translate(-3vw, -5vh);
+}
+.scan-title img{
+height: 15vh;
 }

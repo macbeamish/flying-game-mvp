@@ -140,12 +140,6 @@ function spawnCollectable(){
     collectable.setAttribute('collectable-height', 1);
     collectable.setAttribute('collectable-width', 0.7);  
     collectable.setAttribute('collided', 'false');
-    // collectable.setAttribute('object-type', 'collectable');
-    // collectable.setAttribute('collision-detection-collectable', {});
-    // collectable.setAttribute('geometry', {
-    // primitive: 'sphere',
-    // radius: 1, });
-    // collectable.setAttribute('collectable-remove', '');
     var game = document.querySelector('#game');
     game.appendChild(collectable);
 }

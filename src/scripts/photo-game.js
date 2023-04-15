@@ -271,19 +271,19 @@ function setUIVisible(ui) {
     }
 };
 
-function engClick() {
-    var engButton = document.querySelector("#engButton");
-    var divLanguages = document.querySelector("#language");
-    var background = document.querySelector("#background");
-    var scene = document.querySelector("#scene");
+// function engClick() {
+//     var engButton = document.querySelector("#engButton");
+//     var divLanguages = document.querySelector("#language");
+//     var background = document.querySelector("#background");
+//     var scene = document.querySelector("#scene");
 
-    console.log("eng button clicked");
+//     console.log("eng button clicked");
 
-    background.style.display = "none";
-    divLanguages.style.display = "none";
-    scene.setAttribute("visible", "true");
+//     background.style.display = "none";
+//     divLanguages.style.display = "none";
+//     scene.setAttribute("visible", "true");
 
-};
+// };
 
 function eggClick() {
     // var engButton = document.querySelector("#engButton");
