@@ -57,6 +57,9 @@ function resetFlyingGame(){
 
 }
 
+function startFlyingGame(){
+
+}
 
 
 AFRAME.registerComponent("check-gameover", {
@@ -129,9 +132,3 @@ function resume() {
 	IS_PAUSED = false;
 }
 
-
-
-const exampleTarget = document.querySelector('#example-target');
-exampleTarget.addEventListener("targetFound", event => {
-  console.log("target found");
-});

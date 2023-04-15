@@ -1,12 +1,12 @@
 // below is less efficient as using two event triggers creates lag 
 // this has been left in to help the next dev avoid this mistake
-document.getElementById("jump-trigger").addEventListener("click", () => {
+// document.getElementById("jump-trigger").addEventListener("click", () => {
   // Access the A-Frame entity with the "my-component" attached
-  const myEntity = document.querySelector("[jump]");
+  // const myEntity = document.querySelector("[jump]");
 
   // Emit the custom event to trigger the component
-  myEntity.emit("user-click");
-});
+//   myEntity.emit("user-click");
+// });
 
 
 AFRAME.registerComponent('jump', {
