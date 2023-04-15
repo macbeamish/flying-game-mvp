@@ -1,0 +1,29 @@
+
+<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+
+
+<body>
+
+  <a-scene >   
+    <a-assets>
+            <!-- Lands -->
+            <a-asset-item id="1" src="./src/assets/3dmodels/Lands/FlyingLand_1.glb" ></a-asset-item>
+            <a-asset-item id="2" src="./src/assets/3dmodels/Lands/FlyingLand_2.glb" ></a-asset-item>
+            <a-asset-item id="3" src="./src/assets/3dmodels/Lands/FlyingLand_3.glb" ></a-asset-item>
+            <a-asset-item id="4" src="./src/assets/3dmodels/Lands/FlyingLand_4.glb" ></a-asset-item>
+            <a-asset-item id="5" src="./src/assets/3dmodels/Lands/FlyingLand_5.glb" ></a-asset-item>
+            <a-asset-item id="6" src="./src/assets/3dmodels/Lands/FlyingLand_6.glb" ></a-asset-item>
+            <a-asset-item id="7" src="./src/assets/3dmodels/Lands/FlyingLand_7.glb" ></a-asset-item>       
+            <a-asset-item id="model" src="/src/assets/3dmodels/Collectables/egg5.glb"></a-asset-item>
+    </a-assets>      
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_1.glb)#model"scale="1 1 1"position="0 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_2.glb)#model"scale="1 1 1"position="6 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_3.glb)#model"scale="1 1 1"position="12 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_4.glb)#model"scale="1 1 1"position="18 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_5.glb)#model"scale="1 1 1"position="24 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_6.glb)#model"scale="1 1 1"position="30 0 -15"></a-entity>
+    <a-entity gltf-model="url(./src/assets/3dmodels/Lands/FlyingLand_7.glb)#model"scale="1 1 1"position="40 0 -15"></a-entity>
+    <a-entity id="model" gltf-model="#model" scale="1 1 1" position="0 7 -15"></a-entity>
+  </a-scene>
+</body>

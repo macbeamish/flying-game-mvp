@@ -1,80 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Paytone One', sans-serif;
-  }
-  
-  .background-image {
-    background-image: url('../src/assets/img/green-background.png');
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .content-image {
-    background-image: url('../src/assets/img/poster-box.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    height: 80%;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .content {
-    max-width: 40vw;
-    padding-top: 10vw;
-    text-align: center;
-    color: Black;
-  }
-  .content img{
-    width: 20vh;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 4vh;
-    margin-top: 1vh;
-  }
-  
-  .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(17vh);
-  }
-  
-  .button-1{
-    
-    display: inline-block;
-  }
-  
-  .button-1 img{
-    width: 20vh;
-    opacity:0;
-  }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Paytone One', sans-serif;
+    }
+
+    .background-image {
+      background-image: url('../src/assets/img/green-background.png');
+      background-size: cover;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content-image {
+      background-image: url('../src/assets/img/poster-box.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      height: 80%;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content {
+      max-width: 40vw;
+      padding-top: 10vw;
+      text-align: center;
+      color: Black;
+    }
+
+    .content img {
+      width: 20vh;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 4vh;
+      margin-top: 1vh;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateY(17vh);
+    }
+
+    .button-1 {
+
+      display: inline-block;
+    }
+
+    .button-1 img {
+      width: 20vh;
+      opacity: 0;
+    }
   </style>
 </head>
+
 <body>
   <div class="background-image">
     <div class="content-image">
       <div class="content">
-          
+
         <div class="buttons">
-          <a href="#" class="button-1"><img   onclick="loadPage('../src/views/button-overlay.html','overlay')" src="../src/assets/img/play-button.png" alt="next"></a>
+          <a href="#" class="button-1"><img onclick="enableScan();loadPage('../src/views/scan-button-overlay.html','overlay');;"
+              src="../src/assets/img/play-button.png" alt="next"></a>
         </div>
       </div>
     </div>
   </div>
 </body>
+
 </html>

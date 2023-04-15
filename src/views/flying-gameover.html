@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Language</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+  <style>* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Paytone One', sans-serif;
+  }
+  
+  .background-image {
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-image {
+    background-image: url('../src/assets/img/flying-game-over-box.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content {
+
+    max-width: 60vw;
+    padding: 4vw;
+    text-align: center;
+    color: Black;
+  }
+  
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-4vh);
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+
+   
+  }
+  
+  .button-1{
+    
+    display: inline-block;
+    margin-right: 2vw;
+    margin-left: 2vw;
+  }
+  
+  
+  .button-1 img, .button-2 img {
+    height: 10vh;
+  }
+
+  .score-card{
+   margin-top: 35vh ;
+  }
+  
+ 
+  .score-text{
+
+
+    font-family: 'Paytone One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16vh;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    /* Gradient colors/Golden Winner */
+
+    background: linear-gradient(180deg, #FFEE37 25%, #F78A3B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    /* Yellow/dark yellow */
+
+    text-shadow: 0px 4px 0px #FF6433;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  </style>
+</head>
+<body>
+  <div class="background-image">
+    <div class="content-image">
+      <div class="content">
+        <div class="score-card">
+            <div>
+                <h1 id="final-score" class="score-text"></h1>
+            </div>
+        </div>
+        <div class="buttons">
+            
+            <a class="button-1"><img onclick="resetFlyingGame(); loadPage('../src/views/flying-game-overlay.html','overlay')" src="../src/assets/img/replay-button.png" alt="Restart"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

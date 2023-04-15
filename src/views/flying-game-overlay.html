@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Page with Buttons</title>
+    <style>
+        body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.transparent-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.image-button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    position: absolute;
+}
+
+.image-button img {
+    display: block;
+    width: auto;
+    height: 8vh; /* Adjust button size */
+}
+
+.image-button:hover {
+    cursor: pointer;
+}
+.top-left {
+    top: 2vh;
+    left: 2vw;
+}
+
+.top-right-1 {
+    top: 2vh;
+    right: 10vw;
+}
+
+.top-right-2 {
+    top: 2vh;
+    right: 2vw;
+}
+
+.score-disp {
+    position: absolute; 
+    left: 50%; 
+    top: 11%;
+    transform: translate(-50%, -50%); 
+    font-size: 5vh;
+    font-weight: 800; color: #228AED;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div id="jump-trigger" class="transparent-container">
+        <a href="#" onclick="loadPage('../src/views/help.html','overlay')" class="image-button top-left"><img src="../src/assets/img/help-button.png" alt="help"></a>
+        <a href="#" onclick="pause(); loadPage('../src/views/pause.html','overlay');" class="image-button top-right-1"><img src="../src/assets/img/pause-button.png" alt="pause"></a>
+        <a href="#" onclick="loadPage('../src/views/settings.html','overlay')" class="image-button top-right-2"><img src="../src/assets/img/settings-button.png" alt="settings"></a>
+        <div id="icons"></div>
+        <div id="scoreboard" class = "score-disp" style="position: absolute; left: 50%; top: 11%; transform: translate(-50%, -50%); font-size: 5vh; font-family: Arial, Helvetica, sans-serif; font-weight: 800; color: #228AED;">0</div>
+    </div>
+
+</body>
+</html>
+
+

@@ -1,124 +1,112 @@
-//todo add bonuses
-//todo add scoreboard
-//todo add UI Overlays
-//todo add screens
-// figure out figma
-var firstscreen = true;
-var LANDSPEED = 0.1;
-var COLLECTED = 0;
-var score = 0;
-var isPaused = true;
+var GENERAL_ONBOARDING_COMPLETE = false;
+var FIRST_SCREEN = true;
+var PHOTO_FOUND = false;
+var FLYING_FOUND = false;
+var FLYING_GAME_ONBOARDING_COMPLETE = false;
+var PHOTO_GAME_ONBOARDING_COMPLETE = false;
 console.log("main.js loaded");
-// document.addEventListener("DOMContentLoaded", function(){
-//   const sceneEl = document.querySelector('a-scene');
-// 	const arSystem = sceneEl.systems["mindar-image-system"];
-//   arSystem.start(); // start AR 
-//   console.log("AR event system starting");
-//   sceneEl.addEventListener("arReady", (event) => {
-// 	  console.log("MindAR is ready")
-// 	});
-//   });
 
-AFRAME.registerComponent('score-tick', {
-
-    init: function () {
-		
-  
-    },
-
-    tick: function (time, timeDelta) {
-
-		score += Math.round(timeDelta/100 + COLLECTED * 5);
-		if(!isPaused) {
-		document.getElementById("score").innerHTML = "Score: " + score;
-		
-	
-	}
-    },
-  });
-
-
-//   AFRAME.registerComponent('score', {
-// 	init: function () {
-// 	  this.score = 0;
-// 	  this.el.setAttribute('text', {
-// 		value: 'Score: ' + this.score,
-// 		align: 'center',
-// 		width: 3,
-// 		position: {x: 0, y: 8, z: -5}
-// 	  });
-// 	},
-// 	tick: function (time, timeDelta) {
-// 		score += timeDelta/100 + COLLECTED * 5;
-// 		if(!isPaused) {
-// 			this.score = score;
-// 			this.el.setAttribute('text', {
-// 				value: 'Score: ' + Math.round(score),
-// 			});
-// 		}
-// 	}
-//   });
-
-if (firstscreen) {
+if (FIRST_SCREEN) {
 	loadPage("../src/views/language.html",'overlay');
 	console.log('overlaying first screen');
-	firstscreen = false;
+	FIRST_SCREEN = false;
 }
-function pause() {
-	// console.log("Pause button clicked");
-	isPaused = true;
-	const entities = document.querySelectorAll('[land-move]');
-	entities.forEach(entity => {
-		entity.setAttribute('land-speed', 0)
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	const sceneEl = document.querySelector('a-scene');
+	const arSystem = sceneEl.systems["mindar-image-system"];
+	const exampleTarget = document.querySelector('#example-target');
+	const flyingTarget = document.querySelector('#flying-game-target');
+	const photoTarget = document.querySelector('#photo-game-target');
+
+	// arReady event triggered when ready
+	sceneEl.addEventListener("arReady", (event) => {
+		console.log("MindAR is ready")
 	});
-	  const sprite = document.querySelector("#sprite");
-	  var oldSpeed = sprite.getAttribute('sprite-speed');
-	  sprite.setAttribute('sprite-speed', 0);
-	//   sprite.setAttribute('old-speed', oldSpeed);
-	//   sprite.setAttribute('sprite-gravity', 0);
-	//   sprite.setAttribute('freeze', 0);
-}
-
-function resume() {
-	// console.log('resume button clicked');
-	isPaused = false;
-	const entities = document.querySelectorAll('[land-move]');
-	entities.forEach(entity => {
-		entity.setAttribute('land-speed', 0.1)
+	// arError event triggered when something went wrong. Mostly browser compatbility issue
+	sceneEl.addEventListener("arError", (event) => {
+		console.log("MindAR failed to start")
 	});
-}
-
-  function loadPage(url, divId) {
-	var xmlhttp;
-	if (window.XMLHttpRequest) {
-	  xmlhttp = new XMLHttpRequest();
-	} else {
-	  xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange = function() {
-	  if (this.readyState == 4 && this.status == 200) {
-		document.getElementById(divId).innerHTML = this.responseText;
-	  }
-	};
-	xmlhttp.open("GET", url, true);
-	xmlhttp.send();
-  }
-
-async function loadContent(contentUrl, targetSelector) {
-    const response = await fetch(contentUrl);
-	console.log(contentUrl);
-	
-		console.log(`Error fetching content: ${response.status} ${response.statusText}`);
+	// detect target found
+	flyingTarget.addEventListener("targetFound", event => {
+			console.log("flying target found");
+			loadPage("../src/views/flying-game-overlay.html",'overlay');
+			initializeFlyingGame();
+			resume();
+			
+		// if(GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == false ){
+			
+			
+		// }
+		// else if(GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == true){
+		// 	loadPage("../src/views/flying-game-overlay.html",'overlay');
 		
+		// 	// countdown and start
+		// 	// attach resume(); to a countdown function
+		// }
+		// else{
+		// 	return;
+		// }
+	});
+	// detect target lost
+	flyingTarget.addEventListener("targetLost", event => {
+		console.log("flying target lost");
+		loadPage("../src/views/scan-button-overlay.html",'overlay');
+	});
+
+
+
+	// Photo game target events 
+	photoTarget.addEventListener("targetFound", event => {
+		console.log("photo target found");
+		if(GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == false ){
+			loadPage("../src/views/photo-welcome.html",'overlay');
+		}
+		else if(GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == true){
+			loadPage("../src/views/photo-game-overlay.html",'overlay');
+			
+		}
+		else{
+			return;
+		}
+	});
+	// detect target lost
+	photoTarget.addEventListener("targetLost", event => {
+		console.log("photo target lost");
+		loadPage("../src/views/scan-button-overlay.html",'overlay');
+	});
+});
+
+
+function enableScan(){
 	
-    const newContent = await response.text();
-    document.querySelector(targetSelector).innerHTML = newContent;
-	console.log(newContent);
+	GENERAL_ONBOARDING_COMPLETE = true;
+	const flyingScanner = document.querySelector('#flying-game-target');
+	const photoScanner = document.querySelector('#photo-game-target');
+
+	flyingScanner.setAttribute('mindar-image-target', "targetIndex: 1");
+	photoScanner.setAttribute('mindar-image-target', "targetIndex: 0");
+	console.log("scan enabled");
 }
 
-function loadContentOnClick(contentUrl, targetSelector) {
-    loadContent(contentUrl, targetSelector);
+
+function loadPage(url, divId) {
+var xmlhttp;
+if (window.XMLHttpRequest) {
+	xmlhttp = new XMLHttpRequest();
+} else {
+	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 }
+xmlhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+	document.getElementById(divId).innerHTML = this.responseText;
+	}
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+}
+
 
 function removeContent() {
     document.getElementById('overlay').innerHTML = '';
