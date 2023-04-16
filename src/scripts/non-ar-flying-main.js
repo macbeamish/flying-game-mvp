@@ -1,10 +1,15 @@
 
-
+var LANDSPEED = 0.1;
+var COLLECTED = 0;
+var SCORE = 0;
+var IS_PAUSED = true;
+var GAMEOVER = false;
+var FLYING_GAME_ONBOARDING_COMPLETE = false;
 
 console.log("flying-main.js loaded");
 
 //todo
-function initializeFlyingGame() {
+// function initializeFlyingGame() {
  // Create the game entity
 //  const gameEntity = document.createElement("a-entity");
 //  gameEntity.setAttribute("id", "flying-game");
@@ -41,9 +46,7 @@ function initializeFlyingGame() {
 //  gameContainer.appendChild(gameEntity);
 // const sprite = document.querySelector("#sprite");
 // sprite.setAttribute('jump','');
-}
-
-
+// }
 // function resetFlyingGame(){
 //     // Remove the existing entity
 //     const existingEntity = document.querySelector("flying-game");
@@ -74,7 +77,7 @@ AFRAME.registerComponent("check-gameover", {
 
 function gameOver() {
     loadPage('../src/views/game-over.html','overlay');
-    document.getElementById("final-score").innerHTML = SCORE;
+    document.getElementById("final-score").innerHTML = score;
 }
 
 AFRAME.registerComponent("score-tick", {
@@ -117,4 +120,17 @@ AFRAME.registerComponent("score-tick", {
     },
   });
   
+
+
+
+function pause() {
+	// console.log("Pause button clicked");
+	IS_PAUSED = true;
+	
+}
+
+function resume() {
+	// console.log('resume button clicked');
+	IS_PAUSED = false;
+}
 

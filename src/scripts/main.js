@@ -4,6 +4,12 @@ var PHOTO_FOUND = false;
 var FLYING_FOUND = false;
 var FLYING_GAME_ONBOARDING_COMPLETE = false;
 var PHOTO_GAME_ONBOARDING_COMPLETE = false;
+var IS_PAUSED = true;
+var LANDSPEED = 0.1;
+var COLLECTED = 0;
+var SCORE = 0;
+var GAMEOVER = false;
+var FLYING_GAME_ONBOARDING_COMPLETE = false;
 console.log("main.js loaded");
 
 if (FIRST_SCREEN) {
@@ -11,6 +17,17 @@ if (FIRST_SCREEN) {
 	console.log('overlaying first screen');
 	FIRST_SCREEN = false;
 }
+function pause() {
+	// console.log("Pause button clicked");
+	IS_PAUSED = true;
+	
+}
+
+function resume() {
+	// console.log('resume button clicked');
+	IS_PAUSED = false;
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function() {

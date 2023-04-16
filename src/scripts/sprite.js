@@ -21,7 +21,9 @@ AFRAME.registerComponent('jump', {
     // this.el.addEventListener('user-click', () => {
 
       // more efficent
+      console.log("finding jump-trigger")
       var trigger = document.getElementById("jump-trigger");
+      console.log("jump-trigger found")
       trigger.addEventListener("click", () => {
         console.log("jump-trigger clicked");
     sprite.velocity.addScaledVector(direction, speed);
@@ -44,8 +46,8 @@ AFRAME.registerComponent('jump', {
         pause()
         GAMEOVER = true;
       }
-      if (position.y > 5) {
-        position.y = 5;
+      if (position.y > 10) {
+        position.y = 10;
         sprite.velocity.set(0, 0, 0);
       }
       sprite.object3D.position.copy(position);

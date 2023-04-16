@@ -25,10 +25,10 @@ AFRAME.registerComponent('land-tick', {
         var lSpeed = this.el.getAttribute("land-speed");
 
         // If the entity is off the left side of the screen
-        if (landX < -50){
+        if (landX < -100){
 
             // Set a new position for the entity
-            var newLandPosition = 470;
+            var newLandPosition = 420;
 
             // Get the "landnum" attribute of the entity
             var landnum = this.el.getAttribute('landnum');     
@@ -209,7 +209,6 @@ game.appendChild(land);
 // console.log(`land${id} added with land ${landnumber} at location x = ${x}`);
 }
 
-
-
+terraForm();
 
 

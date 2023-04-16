@@ -41,6 +41,11 @@
     left: 2vw;
 }
 
+.top-left-2 {
+    top: 2vh;
+    left: 20vw;
+}
+
 .top-right-1 {
     top: 2vh;
     right: 10vw;
@@ -66,6 +71,7 @@
 </head>
 <body>
     <div id="jump-trigger" class="transparent-container">
+        <a href="#" onclick="resume()" class="image-button top-left-2"><img src="../src/assets/img/play-button.png" alt="play"></a>
         <a href="#" onclick="loadPage('../src/views/help.html','overlay')" class="image-button top-left"><img src="../src/assets/img/help-button.png" alt="help"></a>
         <a href="#" onclick="pause(); loadPage('../src/views/pause.html','overlay');" class="image-button top-right-1"><img src="../src/assets/img/pause-button.png" alt="pause"></a>
         <a href="#" onclick="loadPage('../src/views/settings.html','overlay')" class="image-button top-right-2"><img src="../src/assets/img/settings-button.png" alt="settings"></a>
@@ -76,4 +82,6 @@
 </body>
 </html>
 
+
+<script src="../src/scripts/flying-main.js"></script>
 
