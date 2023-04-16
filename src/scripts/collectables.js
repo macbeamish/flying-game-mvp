@@ -99,7 +99,7 @@ function spawnCollectable(){
     var collectableNum = getRandomInt(1,5);
      var positionX = getRandomInt(10,50);
      var positionY = getRandomInt(3,10);
-     var positionZ = -14.5;
+     var positionZ = 0;
     var collectable = document.createElement('a-entity');
     collectable.setAttribute('gltf-model', `url(./src/assets/3dmodels/Collectables/egg${collectableNum}.glb)#model`)
     collectable.setAttribute('geometry', 'primitive: sphere; radius: 0.5');
