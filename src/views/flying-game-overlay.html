@@ -54,7 +54,6 @@
 .top-right-2 {
     top: 2vh;
     right: 2vw;
-    margin-top: 0vw;
 }
 
 .score-disp {
@@ -72,10 +71,10 @@
 </head>
 <body>
     <div id="jump-trigger" class="transparent-container">
-        <a href="#" onclick="resume()" class="image-button top-left-2"><img src="../src/assets/img/play-button-lg.png" alt="play"></a>
-        <a href="#" onclick="loadPage('../src/views/help.html','overlay')" class="image-button top-left"><img src="../src/assets/img/help-button.png" alt="help"></a>
+        <a href="#" onclick="resume();" class="image-button top-left-2"><img src="../src/assets/img/play-button-lg.png" alt="play"></a>
+        <a href="#" onclick="loadPage('../src/views/help.html','overlay');" class="image-button top-left"><img src="../src/assets/img/help-button.png" alt="help"></a>
         <a href="#" onclick="pause(); loadPage('../src/views/pause.html','overlay');" class="image-button top-right-1"><img src="../src/assets/img/pause-button.png" alt="pause"></a>
-        <a href="#" onclick="loadPage('../src/views/settings.html','overlay')" class="image-button top-right-2"><img src="../src/assets/img/settings-button.png" alt="settings"></a>
+        <a href="#" onclick="loadPage('../src/views/settings.html','overlay');" class="image-button top-right-2"><img src="../src/assets/img/settings-button.png" alt="settings"></a>
         <div id="icons"></div>
         <div id="scoreboard" class = "score-disp" style="position: absolute; left: 50%; top: 11%; transform: translate(-50%, -50%); font-size: 5vh; font-family: Arial, Helvetica, sans-serif; font-weight: 800; color: #228AED;">0</div>
     </div>
