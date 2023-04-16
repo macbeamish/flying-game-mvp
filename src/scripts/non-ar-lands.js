@@ -14,7 +14,7 @@ AFRAME.registerComponent('land-tick', {
     tick(time, timeDelta){
 
         // Select the "game" HTML element
-        var game = document.querySelector('#flying-game');
+        var game = document.querySelector('#game');
         
         // Get the world position of the current entity
         var worldPosition = new THREE.Vector3();          
@@ -191,12 +191,12 @@ else{
     baloonAltitude = 100;
 } 
    
-const game = document.querySelector('#flying-game');
+const game = document.querySelector('#game');
 const land = document.createElement('a-entity');
 land.setAttribute('id', `${id}`);
 land.setAttribute('landnum', landnumber);
-land.setAttribute('gltf-model', `url(../src/assets/3dmodels/Lands/FlyingLand_${landnumber}.glb)#model`);
-land.setAttribute('position', {x: x, y: 0, z: 0});
+land.setAttribute('gltf-model', `url(./src/assets/3dmodels/Lands/FlyingLand_${landnumber}.glb)#model`);
+land.setAttribute('position', {x: x, y: -1.5, z: -15});
 land.setAttribute('land-tick', {});
 land.setAttribute('land-speed', landSpeed);
 land.setAttribute('land-move', {});
@@ -209,7 +209,7 @@ game.appendChild(land);
 // console.log(`land${id} added with land ${landnumber} at location x = ${x}`);
 }
 
-
+terraForm();
 
 
 

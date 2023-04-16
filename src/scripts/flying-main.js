@@ -9,7 +9,7 @@ var FLYING_GAME_ONBOARDING_COMPLETE = false;
 console.log("flying-main.js loaded");
 
 //todo
-function initializeFlyingGame() {
+// function initializeFlyingGame() {
  // Create the game entity
 //  const gameEntity = document.createElement("a-entity");
 //  gameEntity.setAttribute("id", "flying-game");
@@ -44,24 +44,24 @@ function initializeFlyingGame() {
 //  // Add the game entity to the scene
 //  const gameContainer = document.querySelector("#game-container");
 //  gameContainer.appendChild(gameEntity);
-const sprite = document.querySelector("#sprite");
-sprite.setAttribute('jump','');
-}
-function resetFlyingGame(){
-    // Remove the existing entity
-    const existingEntity = document.querySelector("flying-game");
-    if (existingEntity) {
-      existingEntity.parentNode.removeChild(existingEntity);
-    }
+// const sprite = document.querySelector("#sprite");
+// sprite.setAttribute('jump','');
+// }
+// function resetFlyingGame(){
+//     // Remove the existing entity
+//     const existingEntity = document.querySelector("flying-game");
+//     if (existingEntity) {
+//       existingEntity.parentNode.removeChild(existingEntity);
+//     }
   
-    // Initialize a new entity
-    initializeFlyingGame();
+//     // Initialize a new entity
+//     initializeFlyingGame();
 
-}
+// }
 
-function startFlyingGame(){
+// function startFlyingGame(){
 
-}
+// }
 
 
 AFRAME.registerComponent("check-gameover", {
@@ -102,7 +102,7 @@ AFRAME.registerComponent("score-tick", {
           this.previousCollected = COLLECTED;
         }
   
-        document.getElementById("scoreboard").innerHTML = "Score: " + score;
+        document.getElementById("scoreboard").innerHTML = "Score: " + SCORE;
   
         const landEntities = document.querySelectorAll("[land-move]");
         const collectableEntities = document.querySelectorAll("[collectable-move]");

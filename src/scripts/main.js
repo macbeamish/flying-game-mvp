@@ -7,7 +7,7 @@ var PHOTO_GAME_ONBOARDING_COMPLETE = false;
 console.log("main.js loaded");
 
 if (FIRST_SCREEN) {
-	loadPage("../src/views/language.html",'overlay');
+	loadPage("../src/views/flying-game-overlay.html",'overlay');
 	console.log('overlaying first screen');
 	FIRST_SCREEN = false;
 }
@@ -16,9 +16,9 @@ if (FIRST_SCREEN) {
 document.addEventListener("DOMContentLoaded", function() {
 	const sceneEl = document.querySelector('a-scene');
 	const arSystem = sceneEl.systems["mindar-image-system"];
-	const exampleTarget = document.querySelector('#example-target');
-	const flyingTarget = document.querySelector('#flying-game-target');
-	const photoTarget = document.querySelector('#photo-game-target');
+	// const exampleTarget = document.querySelector('#example-target');
+	// const flyingTarget = document.querySelector('#flying-game-target');
+	// const photoTarget = document.querySelector('#photo-game-target');
 
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		console.log("MindAR failed to start")
 	});
 	// detect target found
-	flyingTarget.addEventListener("targetFound", event => {
-			console.log("flying target found");
-			loadPage("../src/views/flying-game-overlay.html",'overlay');
-			initializeFlyingGame();
-			resume();
-	});		
+	// flyingTarget.addEventListener("targetFound", event => {
+	// 		console.log("flying target found");
+	// 		loadPage("../src/views/flying-game-overlay.html",'overlay');
+	// 		initializeFlyingGame();
+	// 		resume();
+	// });		
 });
 // 		// if(GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == false ){
 			
