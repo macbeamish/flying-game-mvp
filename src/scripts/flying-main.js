@@ -4,7 +4,7 @@
 console.log("flying-main.js loaded");
 
 //todo
-function initializeFlyingGame() {
+// function initializeFlyingGame() {
  // Create the game entity
 //  const gameEntity = document.createElement("a-entity");
 //  gameEntity.setAttribute("id", "flying-game");
@@ -41,7 +41,7 @@ function initializeFlyingGame() {
 //  gameContainer.appendChild(gameEntity);
 // const sprite = document.querySelector("#sprite");
 // sprite.setAttribute('jump','');
-}
+// }
 
 
 // function resetFlyingGame(){
@@ -79,6 +79,7 @@ function gameOver() {
 
 AFRAME.registerComponent("score-tick", {
     init: function () {
+      console.log("score-tick component initialized");
       this.timeAccumulator = 0; // Add a time accumulator variable
       this.previousCollected = 0; // Add a variable to store the previous value of COLLECTED
     },
