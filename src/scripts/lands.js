@@ -17,7 +17,7 @@
 // landBuild: Creates a new land entity with the specified ID, land number, X position, and land speed.
 
 // The script starts by calling the terraForm() function to generate the initial terrain objects.
-terraForm();
+
 
 const NUMBER_OF_LANDS = 25;
 console.log("lands.js loaded");
@@ -277,3 +277,4 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+terraForm();
