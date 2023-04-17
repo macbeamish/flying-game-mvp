@@ -2,7 +2,7 @@
 // todo, add a function to check for collision with the sprite.
 // todo add function to land-tick that increases speed of lands if score > x 
 // add attributes to lands that set their boundaries and balloon boundaries
-const numberOfLands = 51;
+const numberOfLands = 25;
 
 AFRAME.registerComponent('land-tick', {
     // Initialize the component
@@ -26,10 +26,10 @@ AFRAME.registerComponent('land-tick', {
         var lSpeed = this.el.getAttribute("land-speed");
 
         // If the entity is off the left side of the screen
-        if (landX < -100){
+        if (landX < -50){
 
             // Set a new position for the entity
-            var newLandPosition = 420;
+            var newLandPosition = 210;
 
             // Get the "landnum" attribute of the entity
             var landnum = this.el.getAttribute('landnum');     
