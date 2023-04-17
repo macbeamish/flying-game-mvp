@@ -76,75 +76,75 @@ function loadPage(url, divId) {
 // Author: Mac
 // Parameters: None
 // Returns: None
-document.addEventListener("DOMContentLoaded", function() {
-	// Get references to the A-Frame scene and the MindAR system
-	const sceneEl = document.querySelector('a-scene');
-	const arSystem = sceneEl.systems["mindar-image-system"];
-	const exampleTarget = document.querySelector('#example-target');
-	const flyingTarget = document.querySelector('#flying-game-target');
-	const photoTarget = document.querySelector('#photo-game-target');
-	// arReady event triggered when MindAR is ready to start
-	sceneEl.addEventListener("arReady", (event) => {
-		console.log("MindAR is ready");
-	});
+// document.addEventListener("DOMContentLoaded", function() {
+// 	// Get references to the A-Frame scene and the MindAR system
+// 	const sceneEl = document.querySelector('a-scene');
+// 	const arSystem = sceneEl.systems["mindar-image-system"];
+// 	const exampleTarget = document.querySelector('#example-target');
+// 	const flyingTarget = document.querySelector('#flying-game-target');
+// 	const photoTarget = document.querySelector('#photo-game-target');
+// 	// arReady event triggered when MindAR is ready to start
+// 	sceneEl.addEventListener("arReady", (event) => {
+// 		console.log("MindAR is ready");
+// 	});
 
-	// arError event triggered when there's an issue starting MindAR (usually browser compatibility)
-	sceneEl.addEventListener("arError", (event) => {
-		console.log("MindAR failed to start");
-	});
+// 	// arError event triggered when there's an issue starting MindAR (usually browser compatibility)
+// 	sceneEl.addEventListener("arError", (event) => {
+// 		console.log("MindAR failed to start");
+// 	});
 
-	// Detect when the flying target is found
-	flyingTarget.addEventListener("targetFound", event => {
-		console.log("flying target found");
-		// Load the flying game overlay
-		loadPage("../src/views/flying-game-overlay.html", 'overlay');
-		// Initialize the flying game
-		initializeFlyingGame();
-		// Resume the game
-		resume();
-	});
+// 	// Detect when the flying target is found
+// 	flyingTarget.addEventListener("targetFound", event => {
+// 		console.log("flying target found");
+// 		// Load the flying game overlay
+// 		loadPage("../src/views/flying-game-overlay.html", 'overlay');
+// 		// Initialize the flying game
+// 		initializeFlyingGame();
+// 		// Resume the game
+// 		resume();
+// 	});
 
-	// Check if the flying game's onboarding process is complete
-	if (GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == false) {
-		// Onboarding process not complete, add appropriate actions here
-	} else if (GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == true) {
-		// Onboarding process complete, load the flying game overlay
-		loadPage("../src/views/flying-game-overlay.html", 'overlay');
-		// Add countdown and start functionality here
-		// Attach resume(); to a countdown function
-	} else {
-		return;
-	}
+// 	// Check if the flying game's onboarding process is complete
+// 	if (GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == false) {
+// 		// Onboarding process not complete, add appropriate actions here
+// 	} else if (GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == true) {
+// 		// Onboarding process complete, load the flying game overlay
+// 		loadPage("../src/views/flying-game-overlay.html", 'overlay');
+// 		// Add countdown and start functionality here
+// 		// Attach resume(); to a countdown function
+// 	} else {
+// 		return;
+// 	}
 
-	// Detect when the flying target is lost
-	flyingTarget.addEventListener("targetLost", event => {
-		console.log("flying target lost");
-		// Load the scan button overlay
-		loadPage("../src/views/scan-button-overlay.html", 'overlay');
-	});
+// 	// Detect when the flying target is lost
+// 	flyingTarget.addEventListener("targetLost", event => {
+// 		console.log("flying target lost");
+// 		// Load the scan button overlay
+// 		loadPage("../src/views/scan-button-overlay.html", 'overlay');
+// 	});
 
-	// Photo game target events
-	// Detect when the photo target is found
-	photoTarget.addEventListener("targetFound", event => {
-		console.log("photo target found");
-		if (GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == false) {
-			// Load the photo welcome overlay
-			loadPage("../src/views/photo-welcome.html", 'overlay');
-		} else if (GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == true) {
-			// Load the photo game overlay
-			loadPage("../src/views/photo-game-overlay.html", 'overlay');
-		} else {
-			return;
-		}
-	});
+// 	// Photo game target events
+// 	// Detect when the photo target is found
+// 	photoTarget.addEventListener("targetFound", event => {
+// 		console.log("photo target found");
+// 		if (GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == false) {
+// 			// Load the photo welcome overlay
+// 			loadPage("../src/views/photo-welcome.html", 'overlay');
+// 		} else if (GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == true) {
+// 			// Load the photo game overlay
+// 			loadPage("../src/views/photo-game-overlay.html", 'overlay');
+// 		} else {
+// 			return;
+// 		}
+// 	});
 
-	// Detect when the photo target is lost
-	photoTarget.addEventListener("targetLost", event => {
-		console.log("photo target lost");
-		// Load the scan button overlay
-		loadPage("../src/views/scan-button-overlay.html", 'overlay');
-	});
-});
+// 	// Detect when the photo target is lost
+// 	photoTarget.addEventListener("targetLost", event => {
+// 		console.log("photo target lost");
+// 		// Load the scan button overlay
+// 		loadPage("../src/views/scan-button-overlay.html", 'overlay');
+// 	});
+// });
 
 
 

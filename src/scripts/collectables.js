@@ -38,7 +38,7 @@ AFRAME.registerComponent('collectable-collide', {
                 game.removeChild(this.el);
                 COLLECTED += 1;
             }
-            if(this.el.object3D,position.x < -10){
+            if(this.el.object3D.position.x < -10){
                 game.removeChild(this.el);
             }
         }
