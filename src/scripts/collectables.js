@@ -7,6 +7,8 @@ AFRAME.registerComponent('collectable-collide', {
     tick(time, timeDelta){     
         
         if (this.el.getAttribute('collided') === 'false') {
+
+            var game = document.querySelector('#flying-game');
         
             //Get obj position and size
             var worldPosition = this.el.object3D.position;        
@@ -30,12 +32,14 @@ AFRAME.registerComponent('collectable-collide', {
                 && (spriteY < objY + objHeight)
                 && (spriteX + (spriteWidth/2) > objX - (objWidth/2))
                 && (spriteX - (spriteWidth/2) < objX + (objWidth/2))){
-                // console.log("balloon collision" + baloonAltitude + ";" + spriteHeight + ";" + spriteY);
-                
+                // console.log("balloon collision" + baloonAltitude + ";" + spriteHeight + ";" + spriteY);   
                 this.el.setAttribute('collided', 'true');
-                this.el.setAttribute('visible', 'false');
+                this.el.setAttribute('visible', 'false');  
+                game.removeChild(this.el);
                 COLLECTED += 1;
-                
+            }
+            if(this.el.object3D,position.x < 50){
+                game.removeChild(this.el);
             }
         }
         
