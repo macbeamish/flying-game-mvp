@@ -17,8 +17,8 @@ AFRAME.registerComponent('land-tick', {
         var game = document.querySelector('#flying-game');
         
         // Get the world position of the current entity
-        var worldPosition = new THREE.Vector3();          
-        this.el.object3D.getWorldPosition(worldPosition);
+        var worldPosition = this.object3D.position;          
+        ;
 
         // Extract the x position from the world position vector
         var landX = worldPosition.x;
