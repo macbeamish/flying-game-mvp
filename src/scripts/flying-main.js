@@ -73,7 +73,7 @@ AFRAME.registerComponent("check-gameover", {
 });
 
 function gameOver() {
-    loadPage('../src/views/game-over.html','overlay');
+    loadPage('../src/views/flying-gameover.html','overlay');
     document.getElementById("final-score").innerHTML = SCORE;
 }
 
