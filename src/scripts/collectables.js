@@ -9,8 +9,8 @@ AFRAME.registerComponent('collectable-collide', {
         if (this.el.getAttribute('collided') === 'false') {
         
             //Get obj position and size
-            var worldPosition = new THREE.Vector3();          
-            this.el.object3D.getWorldPosition(worldPosition);
+            var worldPosition = this.el.object3D.position;        
+            // this.el.object3D.getWorldPosition(worldPosition);
             var objHeight = parseFloat(this.el.getAttribute('collectable-height'));
             var objWidth = parseFloat(this.el.getAttribute('collectable-width'));
             var objX = worldPosition.x;
@@ -18,8 +18,8 @@ AFRAME.registerComponent('collectable-collide', {
             
             //Get sprite position and size
             var sprite = document.querySelector('#sprite');
-            var spritePosition = new THREE.Vector3();
-            sprite.object3D.getWorldPosition(spritePosition);
+            var spritePosition = sprite.object3D.position;
+            // sprite.object3D.getWorldPosition(spritePosition);
             var spriteX = spritePosition.x;
             var spriteY =  parseFloat(spritePosition.y);
             var spriteHeight = parseFloat(sprite.getAttribute("sprite-height"));

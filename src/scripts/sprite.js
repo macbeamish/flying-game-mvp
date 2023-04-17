@@ -31,6 +31,8 @@ AFRAME.registerComponent('jump', {
   },
   tick: function (time, delta) { 
     if(!IS_PAUSED) {
+
+    
       const sprite = document.querySelector("#sprite");
       this.el.setAttribute('sprite-speed', 3.5);
       var speed = this.el.getAttribute('sprite-speed');

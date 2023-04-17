@@ -49,8 +49,11 @@ AFRAME.registerComponent('land-collide', {
     },
     tick(time, timeDelta){     
             //Get land position and size
-            var worldPosition = new THREE.Vector3();          
-            this.el.object3D.getWorldPosition(worldPosition);
+            // var worldPosition = new THREE.Vector3();          
+            // this.el.object3D.getWorldPosition(worldPosition);
+
+            var worldPosition = this.el.object3D.position;
+
             var landHeight = parseFloat(this.el.getAttribute('land-height'));
             var landWidth = parseFloat(this.el.getAttribute('land-width'));
             var landX = worldPosition.x;
@@ -61,8 +64,9 @@ AFRAME.registerComponent('land-collide', {
 
             //Get sprite position and size
             var sprite = document.querySelector('#sprite');
-            var spritePosition = new THREE.Vector3();
-            sprite.object3D.getWorldPosition(spritePosition);
+            // var spritePosition = new THREE.Vector3();
+            // sprite.object3D.getWorldPosition(spritePosition);
+            var spritePosition = sprite.object3D.position;
             var spriteX = spritePosition.x;
             var spriteY =  parseFloat(spritePosition.y);
             var spriteHeight = parseFloat(sprite.getAttribute("sprite-height"));
@@ -72,7 +76,6 @@ AFRAME.registerComponent('land-collide', {
             if (spriteX + (spriteWidth/2) > landX - (landWidth/2)
              && spriteX - (spriteWidth/2) < landX + (landWidth/2) 
              && spriteY < landY + landHeight){
-                // console.log("land collision");
                 pause();
                 GAMEOVER = true;
                 

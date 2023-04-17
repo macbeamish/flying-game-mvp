@@ -104,6 +104,7 @@ AFRAME.registerComponent("score-tick", {
   
         const landEntities = document.querySelectorAll("[land-move]");
         const collectableEntities = document.querySelectorAll("[collectable-move]");
+        console.log(SCORE);
   
         if (SCORE > 100) {
           var newSpeed = SCORE * 0.00025 + 0.075;

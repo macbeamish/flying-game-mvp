@@ -33,9 +33,9 @@ function resume() {
 document.addEventListener("DOMContentLoaded", function() {
 	const sceneEl = document.querySelector('a-scene');
 	const arSystem = sceneEl.systems["mindar-image-system"];
-	// const exampleTarget = document.querySelector('#example-target');
-	// const flyingTarget = document.querySelector('#flying-game-target');
-	// const photoTarget = document.querySelector('#photo-game-target');
+	const exampleTarget = document.querySelector('#example-target');
+	const flyingTarget = document.querySelector('#flying-game-target');
+	const photoTarget = document.querySelector('#photo-game-target');
 
 	// arReady event triggered when ready
 	sceneEl.addEventListener("arReady", (event) => {
@@ -45,56 +45,56 @@ document.addEventListener("DOMContentLoaded", function() {
 	sceneEl.addEventListener("arError", (event) => {
 		console.log("MindAR failed to start")
 	});
-	// detect target found
+	// // detect target found
 	// flyingTarget.addEventListener("targetFound", event => {
 	// 		console.log("flying target found");
 	// 		loadPage("../src/views/flying-game-overlay.html",'overlay');
 	// 		initializeFlyingGame();
 	// 		resume();
 	// });		
-});
-// 		// if(GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == false ){
+
+	// 	if(GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == false ){
 			
 			
-// 		// }
-// 		// else if(GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == true){
-// 		// 	loadPage("../src/views/flying-game-overlay.html",'overlay');
+	// 	}
+	// 	else if(GENERAL_ONBOARDING_COMPLETE == true && FLYING_GAME_ONBOARDING_COMPLETE == true){
+	// 		loadPage("../src/views/flying-game-overlay.html",'overlay');
 		
-// 		// 	// countdown and start
-// 		// 	// attach resume(); to a countdown function
-// 		// }
-// 		// else{
-// 		// 	return;
-// 		// }
-// 	});
-// 	// detect target lost
-// 	flyingTarget.addEventListener("targetLost", event => {
-// 		console.log("flying target lost");
-// 		loadPage("../src/views/scan-button-overlay.html",'overlay');
-// 	});
+	// 		// countdown and start
+	// 		// attach resume(); to a countdown function
+	// 	}
+	// 	else{
+	// 		return;
+	// 	}
+	// });
+	// // detect target lost
+	// flyingTarget.addEventListener("targetLost", event => {
+	// 	console.log("flying target lost");
+	// 	loadPage("../src/views/scan-button-overlay.html",'overlay');
+	// });
 
 
 
-// 	// Photo game target events 
-// 	photoTarget.addEventListener("targetFound", event => {
-// 		console.log("photo target found");
-// 		if(GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == false ){
-// 			loadPage("../src/views/photo-welcome.html",'overlay');
-// 		}
-// 		else if(GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == true){
-// 			loadPage("../src/views/photo-game-overlay.html",'overlay');
+	// // Photo game target events 
+	// photoTarget.addEventListener("targetFound", event => {
+	// 	console.log("photo target found");
+	// 	if(GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == false ){
+	// 		loadPage("../src/views/photo-welcome.html",'overlay');
+	// 	}
+	// 	else if(GENERAL_ONBOARDING_COMPLETE == true && PHOTO_GAME_ONBOARDING_COMPLETE == true){
+	// 		loadPage("../src/views/photo-game-overlay.html",'overlay');
 			
-// 		}
-// 		else{
-// 			return;
-// 		}
-// 	});
-// 	// detect target lost
-// 	photoTarget.addEventListener("targetLost", event => {
-// 		console.log("photo target lost");
-// 		loadPage("../src/views/scan-button-overlay.html",'overlay');
-// 	});
-// });
+	// 	}
+	// 	else{
+	// 		return;
+	// 	}
+	// });
+	// // detect target lost
+	// photoTarget.addEventListener("targetLost", event => {
+	// 	console.log("photo target lost");
+	// 	loadPage("../src/views/scan-button-overlay.html",'overlay');
+	// });
+
 
 
 // function enableScan(){
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // 	photoScanner.setAttribute('mindar-image-target', "targetIndex: 0");
 // 	console.log("scan enabled");
 // }
-
+});
 
 function loadPage(url, divId) {
 var xmlhttp;
