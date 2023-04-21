@@ -223,7 +223,7 @@ else{
     baloonWidth = 0;
     baloonAltitude = 100;
 } 
-   
+// Creating the land entity and setting all its attributes
 const game = document.querySelector('#flying-game');
 const land = document.createElement('a-entity');
 land.setAttribute('id', `${id}`);
