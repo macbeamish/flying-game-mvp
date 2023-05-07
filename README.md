@@ -8,6 +8,8 @@ My challenge was to recreate one of the company's existing unity based AR season
 The game is built using the AFrame and MindAR libraries and the entity component model.
 To play a simple 3D non AR version of the game built for testing use https://flying-game-test.netlify.app/non-ar-flying-game.html
 
+Press play and then Click or tap on the screen to make the character fly
+
 To play the augmented reality version of the game open this link to launch the hosted version https://flying-game-test.netlify.app/ 
 Open on your mobile device in lanscape mode using Chrome or Safari, push the green arrow button to play.
 and then scan the image below to play. Note that this project is incomplete but functional. 
